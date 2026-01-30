@@ -1,0 +1,136 @@
+- !<AssetImportMetadata/18191516-a4db-457a-bb6e-5866ad15a18f>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 60d78304-aa77-4264-9d30-7f07902fb2b1
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 60d78304-aa77-4264-9d30-7f07902fb2b1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> ce2857f4-8360-447f-a774-6ac15525dfdf
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/001fd212-303f-4f9e-672f-cb5fb83f1cda>
+  PrefabRemaps:
+    []
+  Name: Asteroid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 21.456295}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> cddcb4e6-5bf4-43d1-479e-0f11043a1d98
+  Components:
+    - !<own> 2c853bb9-82a5-4fb2-419c-71e9992301ad
+- !<RenderMeshVisual/1fb9933a-36f6-42bd-4fdf-97e441a5879e>
+  PrefabRemaps:
+    []
+  Name: Mesh
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 076755e6-fb1f-42af-8fcd-351d6ac751a7
+  Mesh: !<reference> 33158ffe-4f3d-4c56-8763-d6505a3e3a92
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/2c853bb9-82a5-4fb2-419c-71e9992301ad>
+  PrefabRemaps:
+    []
+  Name: Asteroid
+  Enabled: true
+  ScriptAsset: !<reference> 438ed84e-b64b-462d-a778-4a7fde31a4f8
+  ScriptInputsDefault:
+    rotationSpeed: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      rotationSpeed: 0.100000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/4a8db044-f11f-424b-4e38-2f11b4274e53>
+  PrefabRemaps:
+    []
+  Name: Asteroid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1fb9933a-36f6-42bd-4fdf-97e441a5879e
+- !<SceneObject/67685ed0-189b-43ad-40f9-3ba42af2f4f6>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> b58cdf86-ea1b-4d58-4328-08f671cf1d1d
+  Components:
+    []
+- !<SceneObject/b58cdf86-ea1b-4d58-4328-08f671cf1d1d>
+  PrefabRemaps:
+    []
+  Name: Scene
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 4a8db044-f11f-424b-4e38-2f11b4274e53
+  Components:
+    []
+- !<SceneObject/cddcb4e6-5bf4-43d1-479e-0f11043a1d98>
+  PrefabRemaps:
+    - 1fb9933a-36f6-42bd-4fdf-97e441a5879e: 306ea4d8-2150-4627-55af-076fe3621a61
+    - 4a8db044-f11f-424b-4e38-2f11b4274e53: 3942411e-1541-4367-4569-2b7d5da654da
+    - 67685ed0-189b-43ad-40f9-3ba42af2f4f6: 3a4584ac-8e1e-4a9d-7778-81c5a1ec2ff5
+    - b58cdf86-ea1b-4d58-4328-08f671cf1d1d: 07a64e00-fe1e-41c0-5bec-143b0dfae1cb
+    - cddcb4e6-5bf4-43d1-479e-0f11043a1d98: e041699a-7b68-4944-4d44-9e71d0c78a8e
+  Name: Model
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 67685ed0-189b-43ad-40f9-3ba42af2f4f6
+  Components:
+    []
+- !<ObjectPrefabAssetData/ce2857f4-8360-447f-a774-6ac15525dfdf>
+  Prototype: !<ObjectOwner/e5bab86b-73b0-492b-b80c-e8521fcb0958>
+    PackagePath: ""
+    objects:
+      - !<own> 001fd212-303f-4f9e-672f-cb5fb83f1cda

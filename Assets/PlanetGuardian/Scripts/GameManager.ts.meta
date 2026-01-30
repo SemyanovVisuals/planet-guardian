@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/196426e4-5798-46c8-94ca-099e6b999591>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c5f55135-3aff-4bbe-8b7b-56480dfb3c48
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c5f55135-3aff-4bbe-8b7b-56480dfb3c48
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 946a93c9-e429-4093-987d-0aae698c62c0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/946a93c9-e429-4093-987d-0aae698c62c0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 0295c566-ceaa-4705-b2c8-5c0205845692
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    orbits: false
+    planet: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - planet: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      orbits: !<MappingBased.AssignableType_1[]>
+        []
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType planet
+    - "// @input AssignableType_1[] orbits"
