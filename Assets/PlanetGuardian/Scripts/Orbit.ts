@@ -27,4 +27,20 @@ export class Orbit extends BaseScriptComponent {
         const rotation = quat.fromEulerAngles(0, getTime() * this.rotationSpeed, 0);
         transform.setLocalRotation(rotation);
     }
+
+    // TODO: Doesnt seam to work
+    public getAsteroids(): Asteroid[] {
+        const asteroids = []
+
+        for (var i = 0; i < this.sceneObject.getChildrenCount(); i++) {
+            const obj = this.sceneObject.getChild(i);
+            for (const script of obj.getComponents("Component.ScriptComponent")) {
+                if (script.getTypeName().toString() == Asteroid.getTypeName().toString()) {
+                    asteroids.push(script);
+                }
+            }
+        }
+
+        return asteroids;
+    }
 }

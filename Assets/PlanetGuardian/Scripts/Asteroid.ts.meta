@@ -28,6 +28,7 @@
   ScriptInputsHidden:
     model: false
     orbitRadius: false
+    particles: false
     rotationSpeed: false
   ScriptTypesHidden:
     {}
@@ -39,6 +40,7 @@
     []
   DefaultScriptInputs:
     - model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      particles: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       rotationSpeed: 0.100000
       orbitRadius: !<float> 25.000000
   ScriptTypes:
@@ -46,5 +48,6 @@
       {}
   InputLines:
     - // @input SceneObject model
+    - // @input SceneObject particles
     - // @input float rotationSpeed = 0.1
     - // @input float orbitRadius = 25
