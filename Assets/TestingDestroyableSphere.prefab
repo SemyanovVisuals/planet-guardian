@@ -1,0 +1,80 @@
+- !<ObjectPrefab/be06a694-22ed-419e-ae3c-0e8c17906567>
+  PackagePath: ""
+  objects:
+    - !<own> 9e49d324-f268-4858-b4d6-114e1f815abe
+  LazyLoading: false
+  RetainAssets: true
+- !<ColliderComponent/56ac4be7-6e8f-4b36-b6b5-f9b8015d0fae>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<SceneObject/9e49d324-f268-4858-b4d6-114e1f815abe>
+  PrefabRemaps:
+    - 56ac4be7-6e8f-4b36-b6b5-f9b8015d0fae: 56ac4be7-6e8f-4b36-494a-0647fea2f051
+    - 9e49d324-f268-4858-b4d6-114e1f815abe: 9e49d324-f268-4858-4b29-eeb1e07ea541
+    - db8751c9-1c11-4342-81ca-bfa974d5808e: db8751c9-1c11-4342-7e35-40568b2a7f71
+    - f72db3ad-c5b3-440d-923c-1ce55a6e6cab: f72db3ad-c5b3-440d-6dc3-e31aa5919354
+  Name: TestingDestroyableSphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.421329, z: -59.740860}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> db8751c9-1c11-4342-81ca-bfa974d5808e
+    - !<own> f72db3ad-c5b3-440d-923c-1ce55a6e6cab
+    - !<own> 56ac4be7-6e8f-4b36-b6b5-f9b8015d0fae
+- !<RenderMeshVisual/db8751c9-1c11-4342-81ca-bfa974d5808e>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 530cf13e-5e41-48ce-876e-7dbcd0408986
+  Mesh: !<reference> df2e3c19-b55b-4eb1-9629-88dc02096d68
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/f72db3ad-c5b3-440d-923c-1ce55a6e6cab>
+  PrefabRemaps:
+    []
+  Name: DestroyableObject
+  Enabled: true
+  ScriptAsset: !<reference> 200bf33e-a328-42dd-8976-22d8898aff4d
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}

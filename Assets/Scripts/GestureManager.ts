@@ -1,6 +1,7 @@
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
 import {GrabbableObject} from "./GrabbableObject"
+import {DestroyableObject} from "./DestroyableObject"
 
 /**
  * Manages pinch-to-grab interactions for objects with GrabbableObject components.
@@ -65,6 +66,14 @@ export class GestureManager extends BaseScriptComponent {
   private leftHandOverlappingObjects: Set<GrabbableObject> = new Set()
   private rightHandOverlappingObjects: Set<GrabbableObject> = new Set()
 
+  // Track sphere objects per hand
+  // leftHandOverlappingDestroyableObjects: DestroyableObject[] = []
+  // rightHandOverlappingDestroyableObjects: DestroyableObject[] = []
+  leftHandOverlappingDestroyableObjects = new Map<DestroyableObject, number>()
+  rightHandOverlappingDestroyableObjects = new Map<DestroyableObject, number>()
+  // private leftHandOverlappingDestroyableObjects: Set<DestroyableObject> = new Set()
+  // private rightHandOverlappingDestroyableObjects: Set<DestroyableObject> = new Set()
+
   // Debug sphere instances
   private leftIndexDebugSphere: SceneObject | null = null
   private leftThumbDebugSphere: SceneObject | null = null
@@ -81,6 +90,10 @@ export class GestureManager extends BaseScriptComponent {
     // Set up gesture events for both hands
     this.setupGestureEvents(GestureModule.HandType.Left)
     this.setupGestureEvents(GestureModule.HandType.Right)
+
+    // TEMP: Log once per pinch
+    this.rightHand?.onPinchDown.add(() => print("✅ Right pinch down"))
+    this.rightHand?.onPinchUp.add(() => print("🟦 Right pinch up"))
 
     // Update event to check pinch strength
     this.createEvent("UpdateEvent").bind(this.onUpdate.bind(this))
@@ -266,6 +279,7 @@ export class GestureManager extends BaseScriptComponent {
     // Set up overlap events
     collider.onOverlapEnter.add((e: OverlapEnterEventArgs) => {
       this.onFingerOverlapEnter(e, isLeftHand)
+      // print("OVERLAP")
     })
 
     collider.onOverlapExit.add((e: OverlapExitEventArgs) => {
@@ -287,6 +301,7 @@ export class GestureManager extends BaseScriptComponent {
 
     // Check if this object has a GrabbableObject component
     const grabbable = this.findGrabbableObjectComponent(overlappedObject)
+    const destroyable = this.findDestroyableObjectComponent(overlappedObject)
 
     if (grabbable) {
       // Add to the set of overlapping objects for this hand
@@ -300,6 +315,24 @@ export class GestureManager extends BaseScriptComponent {
     } else {
       print(`GestureManager: ✗ ${overlappedObject.name} does not have GrabbableObject component`)
     }
+
+    if (destroyable) {
+      print("OVERLAP ENTER")
+      // Add to the set of overlapping objects for this hand
+      if (isLeftHand) {
+        // enter
+        this.leftHandOverlappingDestroyableObjects.set(destroyable, (this.leftHandOverlappingDestroyableObjects.get(destroyable) ?? 0) + 1)
+        print(`GestureManager: ✓ ${handName} hand added DESTROYABLE object: ${overlappedObject.name}`)
+      } else {
+        this.rightHandOverlappingDestroyableObjects.set(destroyable, (this.rightHandOverlappingDestroyableObjects.get(destroyable) ?? 0) + 1)
+        // this.rightHandOverlappingDestroyableObjects.push(destroyable)
+        print(`GestureManager: ✓ ${handName} hand added DESTROYABLE object: ${overlappedObject.name}`)
+
+        print("COUNT " + this.rightHandOverlappingDestroyableObjects.get(destroyable))
+      }
+    } else {
+      print(`GestureManager: ✗ ${overlappedObject.name} does not have DestroyableObject component`)
+    }
   }
 
   /**
@@ -311,12 +344,34 @@ export class GestureManager extends BaseScriptComponent {
     // Check if this object has a GrabbableObject component
     const grabbable = this.findGrabbableObjectComponent(overlappedObject)
 
+    // Check if this object has a DestroyableObject component
+    const destroyable = this.findDestroyableObjectComponent(overlappedObject)
+
     if (grabbable) {
       // Remove from the set of overlapping objects for this hand
       if (isLeftHand) {
         this.leftHandOverlappingObjects.delete(grabbable)
       } else {
         this.rightHandOverlappingObjects.delete(grabbable)
+      }
+    }
+
+    if (destroyable) {
+      // Remove from the set of overlapping objects for this hand
+      print("OVERLAP EXIT")
+      if (isLeftHand) {
+        // this.leftHandOverlappingDestroyableObjects.delete(destroyable)
+        // exit
+        const count = (this.leftHandOverlappingDestroyableObjects.get(destroyable) ?? 1) - 1
+        if (count <= 0) this.leftHandOverlappingDestroyableObjects.delete(destroyable)
+        else this.leftHandOverlappingDestroyableObjects.set(destroyable, count)
+      } else {
+        // this.rightHandOverlappingDestroyableObjects.delete(destroyable)
+        const count = (this.rightHandOverlappingDestroyableObjects.get(destroyable) ?? 1) - 1
+        if (count <= 0) this.rightHandOverlappingDestroyableObjects.delete(destroyable)
+        else this.rightHandOverlappingDestroyableObjects.set(destroyable, count)
+
+        print("COUNT " + this.rightHandOverlappingDestroyableObjects.get(destroyable))
       }
     }
   }
@@ -331,6 +386,22 @@ export class GestureManager extends BaseScriptComponent {
       // Check if this is a GrabbableObject by checking if it has the required methods
       if (comp && typeof (comp as any).onGrab === "function" && typeof (comp as any).onRelease === "function") {
         return comp as GrabbableObject
+      }
+    }
+    return null
+  }
+
+  /**
+   * Find DestroyableObject component on a scene object
+   */
+  private findDestroyableObjectComponent(sceneObject: SceneObject): DestroyableObject | null {
+    print("CHECKING IF DESTROYABLE")
+    const allComponents = sceneObject.getComponents("Component.ScriptComponent")
+    for (let i = 0; i < allComponents.length; i++) {
+      const comp = allComponents[i]
+      // Check if this is a GrabbableObject by checking if it has the required methods
+      if (comp && typeof (comp as any).onDestroy === "function") {
+        return comp as DestroyableObject
       }
     }
     return null
@@ -376,6 +447,9 @@ export class GestureManager extends BaseScriptComponent {
 
     // Try to grab with pinch gesture
     this.attemptGrab(handType, "pinch")
+
+    // Try to destroy with pinch gesture
+    this.attemptDestroy(handType, "pinch")
   }
 
   private onGrabBegin(handType: GestureModule.HandType) {
@@ -449,6 +523,44 @@ export class GestureManager extends BaseScriptComponent {
         }
       }
     }
+  }
+
+  private attemptDestroy(handType: GestureModule.HandType, gestureType: "pinch") {
+
+    print("ATTEMPTING TO DESTROY")
+
+    const isLeft = handType === GestureModule.HandType.Left
+    const handName = isLeft ? "Left" : "Right"
+
+    // Get the hand
+    const hand = isLeft ? this.leftHand : this.rightHand
+
+    if (!hand || !hand.isTracked()) {
+      print("GestureManager: Hand not tracked")
+      return
+    }
+
+    // Check if we're overlapping with any destroyable objects
+    const overlappingObjects = isLeft ? this.leftHandOverlappingDestroyableObjects : this.rightHandOverlappingDestroyableObjects
+
+    print(
+      `GestureManager: ${gestureType} detected, checking overlaps... (${overlappingObjects.size} objects overlapping)`
+    )
+
+    if (overlappingObjects.size === 0) {
+      print("GestureManager: ✗ No objects in range to destroy")
+      return
+    }
+
+    // ✅ Get one key from the map
+    const iter = overlappingObjects.keys().next()
+    const destroyable = (iter && !iter.done ? iter.value : null) as DestroyableObject | null
+    if (!destroyable) return
+
+    // Remove first so overlap-exit won’t fight your map state
+    overlappingObjects.delete(destroyable)
+
+    destroyable.onDestroy(hand)
   }
 
   private onPinchUp(handType: GestureModule.HandType) {
