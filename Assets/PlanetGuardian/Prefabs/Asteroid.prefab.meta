@@ -27,6 +27,7 @@
     {}
   ScriptInputs:
     "":
+      model: !<reference.SceneObject> fb4391d8-a391-4d20-5674-061bdabb996e
       rotationSpeed: 0.100000
       orbitRadius: !<float> 25.000000
   ScriptTypes:

@@ -2,9 +2,10 @@ import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
 
 @component
 export class Asteroid extends BaseScriptComponent {
+    @input model : SceneObject
     @input rotationSpeed : number = 0.1
     @input orbitRadius : number = 25.0
-
+    
     private rotation : vec3
 
     onAwake() {
@@ -22,14 +23,15 @@ export class Asteroid extends BaseScriptComponent {
         
         const dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
         const pos = dir.uniformScale(this.orbitRadius);
-        const randomOffset = vec3.randomDirection().uniformScale(3);
+        const randomOffset = vec3.randomDirection();
 
        // prefab.getTransform().setLocalPosition(pos.add(randomOffset));
 
         const finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
 
+                this.getTransform().setLocalPosition(pos.add(randomOffset.uniformScale(3)));
         // Orbit animation
-        animate({
+       /* animate({
             easing: "ease-out-sine",
             duration: 10,
             update: (t: number) => {
@@ -40,13 +42,14 @@ export class Asteroid extends BaseScriptComponent {
                 this.getTransform().setLocalPosition(pos.add(randomOffset).add(enterOrbit));
             },
             ended: null,
-        })
+        })*/
 
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
         this.rotation = vec3.randomDirection().uniformScale(Math.random() * 2 + 1)
+        this.getTransform().setLocalRotation(quat.fromEulerVec(randomOffset.normalize()));
     }
 
-    public enterOrbit() {
+    public enterPlanet() {
         const startPos = this.getTransform().getLocalPosition();
 
         animate({
@@ -60,8 +63,7 @@ export class Asteroid extends BaseScriptComponent {
     }
 
     private update() {
-        const transform = this.getTransform();
         const rotation = quat.fromEulerVec(this.rotation.uniformScale(getTime() * this.rotationSpeed));
-        transform.setLocalRotation(rotation);
+        this.model.getTransform().setLocalRotation(rotation);
     }
 }
