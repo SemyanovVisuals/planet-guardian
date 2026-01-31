@@ -22,6 +22,24 @@
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
+- !<ColliderComponent/0acd9156-aa14-4234-bdb6-08a62535ab3e>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<RenderMeshVisual/14096a08-7e12-4d45-b480-d715b57fb876>
   PrefabRemaps:
     []
@@ -170,6 +188,23 @@
     - !<own> cda2078e-7683-4ca7-a2fb-4fc7aa8e47b3
   Components:
     []
+- !<SceneObject/1d573b0a-7a62-48ca-8865-0d4a15317372>
+  PrefabRemaps:
+    []
+  Name: RocketLauncher
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 8.539236, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3262c5d5-1d08-45cf-b677-3215c9af16dd
+    - !<own> 0acd9156-aa14-4234-bdb6-08a62535ab3e
+    - !<own> 9cc04355-6f0f-4979-8bd9-8b4aae393e95
 - !<ScriptComponent/30a99e32-5aea-47bf-a0e3-605bb93dc67d>
   PrefabRemaps:
     []
@@ -203,6 +238,26 @@
     - !<own> b6a3b3b1-2c08-41a9-bbfb-a1d63d926796
   Components:
     []
+- !<RenderMeshVisual/3262c5d5-1d08-45cf-b677-3215c9af16dd>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 2f01fe9a-cc0b-4313-bb5d-64bd5da513f9
+  Mesh: !<reference> c73a3402-321c-404e-8709-e44a98035393
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/330fcefd-7856-47dc-8bb8-51e8f1dbf030>
   PrefabRemaps:
     []
@@ -321,13 +376,16 @@
 - !<SceneObject/5c317e55-8776-4b1f-b9a4-69cbe142c713>
   PrefabRemaps:
     - 02787936-f6da-44e4-8718-943f2f2f23ed: 1074d2ef-8aaf-4c29-a18a-ceea7d2f7074
+    - 0acd9156-aa14-4234-bdb6-08a62535ab3e: 4269e534-6fb4-4626-a5dd-38435b733ac9
     - 14096a08-7e12-4d45-b480-d715b57fb876: 14096a08-7e12-4d45-4b7f-28ea4a804789
     - 14480b34-26ed-4bb3-a969-d8a84514fe8b: 14480b34-26ed-4bb3-5696-2757baeb0174
     - 16fb0246-bf72-41c4-9ce0-94c64ec3bd84: 8756c5bc-2dbc-479c-8ca2-58f4e353b8ae
     - 17c27da0-16cd-4f95-b461-ba47d4db8cc3: c9617448-0c0c-45a1-a91f-6bc4e7d728ae
     - 1b463395-455c-4bde-acb3-eab5a0fc9e6a: 1b463395-455c-4bde-534c-154a5f036195
+    - 1d573b0a-7a62-48ca-8865-0d4a15317372: 9fdf56b9-253b-4fe1-b6eb-ffcabf841c10
     - 30a99e32-5aea-47bf-a0e3-605bb93dc67d: 0b44c6e6-65fe-4ece-8dc8-2e6c7e07e90f
     - 30dc602e-2c4e-4592-8835-6384f2caafc2: 617238c2-c2a3-424e-9a6e-88698f09205e
+    - 3262c5d5-1d08-45cf-b677-3215c9af16dd: 446df633-b8f3-41d7-8540-73cb13394e1c
     - 330fcefd-7856-47dc-8bb8-51e8f1dbf030: 330fcefd-7856-47dc-7447-ae170e240fcf
     - 36359738-1175-4a55-b08f-cbe716c42406: 5159eb1d-f71e-4202-92e7-3874cdd789a1
     - 4856bb49-7abe-4b05-bf5f-bb06a0dbf4b9: 4856bb49-7abe-4b05-40a0-44f95f240b46
@@ -341,6 +399,7 @@
     - 7ac7468e-2fdc-4c1c-a5b8-ee50ffa5cbb4: 7c40d50a-205b-4894-a503-f3b694b76101
     - 8728b134-00c7-4381-8dbd-c23eba237076: 541139bf-d006-4ad5-8913-5da76a6e4c45
     - 881aeda5-6903-4712-abfd-9f19296b8523: 07fc7a01-969e-459a-b8ce-f73919e635fb
+    - 9cc04355-6f0f-4979-8bd9-8b4aae393e95: 1ddd68f8-fb7e-4a9f-a61a-6f5999b20a5a
     - ab96de8d-ab65-429e-8741-b0f4d8e78a71: ab96de8d-ab65-429e-78be-4f0b2718758e
     - abf9fa76-e92d-4ef4-8c36-0cec6f20ab57: 4aca1712-3f06-4456-8648-96961c4d8231
     - b6a3b3b1-2c08-41a9-bbfb-a1d63d926796: 81d375e7-9561-4756-bdf0-06ed3adc73ba
@@ -365,6 +424,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> 1d573b0a-7a62-48ca-8865-0d4a15317372
     - !<own> bf57ae92-06ab-4d30-9cee-69a1e050e05c
     - !<own> 330fcefd-7856-47dc-8bb8-51e8f1dbf030
     - !<own> 30dc602e-2c4e-4592-8835-6384f2caafc2
@@ -452,6 +512,22 @@
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
+- !<ScriptComponent/9cc04355-6f0f-4979-8bd9-8b4aae393e95>
+  PrefabRemaps:
+    []
+  Name: TriggerObject
+  Enabled: true
+  ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/ab96de8d-ab65-429e-8741-b0f4d8e78a71>
   PrefabRemaps:
     []

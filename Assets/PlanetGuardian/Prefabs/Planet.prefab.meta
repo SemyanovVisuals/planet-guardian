@@ -152,6 +152,22 @@
     - !<own> cda2078e-7683-4ca7-5d04-b0385571b84c
   Components:
     []
+- !<ScriptComponent/1ddd68f8-fb7e-4a9f-a61a-6f5999b20a5a>
+  PrefabRemaps:
+    []
+  Name: TriggerObject
+  Enabled: true
+  ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/330fcefd-7856-47dc-7447-ae170e240fcf>
   PrefabRemaps:
     []
@@ -183,6 +199,44 @@
     - !<own> 7c40d50a-205b-4894-a503-f3b694b76101
   Components:
     []
+- !<ColliderComponent/4269e534-6fb4-4626-a5dd-38435b733ac9>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<RenderMeshVisual/446df633-b8f3-41d7-8540-73cb13394e1c>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 2f01fe9a-cc0b-4313-bb5d-64bd5da513f9
+  Mesh: !<reference> c73a3402-321c-404e-8709-e44a98035393
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/456d998e-790a-4170-bccd-eb4ce02bb11b>
   PrefabRemaps:
     []
@@ -312,6 +366,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> 9fdf56b9-253b-4fe1-b6eb-ffcabf841c10
     - !<own> d6f5af89-8520-469e-a376-cf928a61cbda
     - !<own> 330fcefd-7856-47dc-7447-ae170e240fcf
     - !<own> 617238c2-c2a3-424e-9a6e-88698f09205e
@@ -513,6 +568,23 @@
     PackagePath: ""
     objects:
       - !<own> 5c317e55-8776-4b1f-465b-96341ebd38ec
+- !<SceneObject/9fdf56b9-253b-4fe1-b6eb-ffcabf841c10>
+  PrefabRemaps:
+    []
+  Name: RocketLauncher
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 8.539236, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 446df633-b8f3-41d7-8540-73cb13394e1c
+    - !<own> 4269e534-6fb4-4626-a5dd-38435b733ac9
+    - !<own> 1ddd68f8-fb7e-4a9f-a61a-6f5999b20a5a
 - !<SceneObject/ab6125de-2899-4cb5-8a20-a998563d8dc0>
   PrefabRemaps:
     []

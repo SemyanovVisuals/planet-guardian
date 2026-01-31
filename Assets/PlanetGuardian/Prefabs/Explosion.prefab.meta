@@ -1,0 +1,73 @@
+- !<AssetImportMetadata/e1d02ad8-ac3b-4bbd-8a6e-fccd026a06db>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> c6052d47-0dbe-47a3-ba73-d39c4a36e6bd
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> c6052d47-0dbe-47a3-ba73-d39c4a36e6bd
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> eeabcd8c-d1d2-4eea-ac6e-9d58a3e0bc5a
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<RenderMeshVisual/36673717-0531-4520-6a8f-fcc1ddec36a6>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> a1773ff6-7805-4542-8391-01e300894b23
+  Mesh: !<reference> 6899bbb4-2017-40ea-9635-fc474fdab466
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ScriptComponent/5e026705-9b2e-410a-aba5-0379edb849b7>
+  PrefabRemaps:
+    []
+  Name: Explosion
+  Enabled: true
+  ScriptAsset: !<reference> aeaf4aa3-0839-4f97-9f67-36361fc196de
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/ed2347a7-4244-4afb-64c8-99f0037015b9>
+  PrefabRemaps:
+    []
+  Name: Explosion
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 36673717-0531-4520-6a8f-fcc1ddec36a6
+    - !<own> 5e026705-9b2e-410a-aba5-0379edb849b7
+- !<ObjectPrefabAssetData/eeabcd8c-d1d2-4eea-ac6e-9d58a3e0bc5a>
+  Prototype: !<ObjectOwner/56fb92c7-fbc6-49d4-8850-1d4f698ec7f1>
+    PackagePath: ""
+    objects:
+      - !<own> ed2347a7-4244-4afb-64c8-99f0037015b9
