@@ -1,4 +1,5 @@
 import animate, {CancelSet} from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import { Orbit } from "./Orbit"
 
 @component
 export class Asteroid extends BaseScriptComponent {
@@ -12,6 +13,7 @@ export class Asteroid extends BaseScriptComponent {
     private finalPos : vec3
     private dir : vec3
     private spawnTime : number
+    private orbit: Orbit
 
     onAwake() {
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
@@ -20,6 +22,7 @@ export class Asteroid extends BaseScriptComponent {
         this.finalPos = pos.add(randomOffset);
         this.finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
         this.spawnTime = getTime();
+        this.orbit = null;
 
         // Orbit animation
         /*animate({
@@ -43,12 +46,20 @@ export class Asteroid extends BaseScriptComponent {
             .setLocalRotation(quat.rotationFromTo(vec3.zero(), this.finalPos))
     }
 
-    public onDestroy() {
-       // this.cancelSet.cancel();
+    public setOrbit(orbit: Orbit) {
+        this.orbit = orbit;
+    }
+
+    public onDestroyAsteroid() {
+        this.orbit.removeAsteroid(this as Asteroid)
+
+        print("DESTROYING AN ASTEROID")
+
         this.sceneObject.destroy();
     }
 
     public enterPlanet() {
+        print("ENTERING PLANET")
         const startPos = this.getTransform().getLocalPosition();
         this.particles.enabled = true;
         console.log("smash");

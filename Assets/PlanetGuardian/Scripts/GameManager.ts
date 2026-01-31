@@ -11,13 +11,19 @@ export class GameManager extends BaseScriptComponent {
     onAwake() {
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
-        // Create new asteroid at a random orbit every 3 seconds
-        setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
+        // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
+        // For every orbit, spawn asteroids with an inteval
         setInterval(() => {
-            const res = this.getRandomAsteroid();
-            console.log(res);    
-            (res as any)?.enterPlanet()
-        }, 1000 * 5);
+            for (let i = 0; i < this.orbits.length; i++) {
+                this.orbits[i].spawnAsteroid();
+            }
+        }, 1000 * 2);
+
+        // setInterval(() => {
+        //     const res = this.getRandomAsteroid();
+        //     console.log(res);    
+        //     (res as any)?.enterPlanet()
+        // }, 1000 * 5);
     }
 
     private getRandomOrbit() : Orbit {
@@ -30,6 +36,8 @@ export class GameManager extends BaseScriptComponent {
         // as the random orbit it picked might have no asteroids at the moment
         const orbit = this.getRandomOrbit();
         const asteroids = orbit.getAsteroids();
+
+        print("NUM OF ASTEROIDS ON SELECTED ORBIT: " + asteroids.length)
         
         if (asteroids.length == 0)
             return null;
