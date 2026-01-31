@@ -8,7 +8,7 @@ export class Asteroid extends BaseScriptComponent {
 
     onAwake() {
         // Scale-in animation
-        animate({
+        /*animate({
             easing: "ease-out-elastic",
             duration: 1.5,
             update: (t: number) => {
@@ -16,7 +16,8 @@ export class Asteroid extends BaseScriptComponent {
             },
             ended: null,
         })
-        
+        */
+        this.getTransform().setLocalScale(vec3.one().uniformScale(Math.random() * 0.5 + 0.5))
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
         this.rotation = vec3.randomDirection()
     }
@@ -24,8 +25,7 @@ export class Asteroid extends BaseScriptComponent {
     private update() {
         const transform = this.getTransform();
         // idk how to multiply by scalar value :/
-        const t = getTime() * this.rotationSpeed;
-        const rotation = quat.fromEulerVec(this.rotation.mult(new vec3(t, t, t)));
+        const rotation = quat.fromEulerVec(this.rotation.uniformScale(getTime() * this.rotationSpeed));
         transform.setLocalRotation(rotation);
     }
 }

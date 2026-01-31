@@ -549,6 +549,21 @@
     - !<own> 5384d0d9-a7e3-4da5-9899-244b83f5d2c9
   Components:
     []
+- !<SceneObject/0f6e1586-2f92-44b9-a416-b732328f3d28>
+  PrefabRemaps:
+    []
+  Name: Orbit2
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000010, y: -0.000000, z: 90.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1aafad92-2f9a-43ff-b9a5-46ebe1ad4a00
+  Components:
+    []
 - !<SceneObject/11644010-a4cf-448f-9e06-e0f83cb1dfb3>
   PrefabRemaps:
     []
@@ -812,6 +827,21 @@
     - !<own> d54e4d46-2292-4fff-b89c-bb6e951c1742
   Components:
     []
+- !<SceneObject/1aafad92-2f9a-43ff-b9a5-46ebe1ad4a00>
+  PrefabRemaps:
+    []
+  Name: Orbit
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e116a48e-6838-484e-8f43-923f81ceea68
 - !<SceneObject/1adc69e9-abeb-42cc-abc8-945dca2265c1>
   PrefabRemaps:
     []
@@ -1548,21 +1578,6 @@
     - !<own> f56a3dde-e9d1-4a6a-b369-b3e524cb1ee2
   Components:
     []
-- !<SceneObject/337fd4f8-5c29-4a99-a4e8-f74fabf9eca5>
-  PrefabRemaps:
-    []
-  Name: Orbit
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> f5d3c358-8ec5-4c4e-a1b5-5486e71c4de6
 - !<SceneObject/349d7aa8-26ef-4c4a-b224-d591e1a5bf3d>
   PrefabRemaps:
     - 349d7aa8-26ef-4c4a-b224-d591e1a5bf3d: 7d03dc6a-faf1-4069-5719-74e065409253
@@ -3240,7 +3255,8 @@
       planet: !<MappingBased.AssignableType> 795b449a-5150-4fb4-9277-935f08b75ae5
       orbits: !<MappingBased.AssignableType_1[]>
         - !<reference> 6008fe37-4f01-490b-9002-9bf846f69724
-        - !<reference> f5d3c358-8ec5-4c4e-a1b5-5486e71c4de6
+        - !<reference> d8779e50-420e-4e1e-a654-38b7635a8e18
+        - !<reference> e116a48e-6838-484e-8f43-923f81ceea68
   ScriptTypes:
     "":
       {}
@@ -4099,6 +4115,21 @@
     - !<own> 9c79aa22-db99-4714-bf46-b9ba95fc19a7
   Components:
     []
+- !<SceneObject/6a2807c6-6176-4b32-aea3-4f76e397d9f1>
+  PrefabRemaps:
+    []
+  Name: Orbit
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d8779e50-420e-4e1e-a654-38b7635a8e18
 - !<SceneObject/6ad5446f-1457-4500-8bf0-5793e31c1dc0>
   PrefabRemaps:
     []
@@ -4251,21 +4282,6 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> cf1f4dbe-bbbe-44f2-8872-c83aafe3f4a4
-  Components:
-    []
-- !<SceneObject/7481a35a-ccb4-430d-b05f-d829be9785f0>
-  PrefabRemaps:
-    []
-  Name: Orbit1
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    - !<own> 337fd4f8-5c29-4a99-a4e8-f74fabf9eca5
   Components:
     []
 - !<SceneObject/755c0a0d-883e-46e3-bbe6-a4563095bf6d>
@@ -6163,7 +6179,8 @@
   Children:
     - !<own> c8eca25e-5859-42e6-9ada-c411b06419e0
     - !<own> ddc51b2c-a11f-438c-8a40-c258e037eeef
-    - !<own> 7481a35a-ccb4-430d-b05f-d829be9785f0
+    - !<own> d04c510e-9a88-459a-bb7a-263086d64068
+    - !<own> 0f6e1586-2f92-44b9-a416-b732328f3d28
   Components:
     - !<own> 795b449a-5150-4fb4-9277-935f08b75ae5
 - !<SceneObject/b9eab4f1-8006-4fbb-8f88-e645aeeb6c79>
@@ -6651,6 +6668,21 @@
     - !<own> 2c09ce0f-d602-435f-bbf3-99d10a211c21
   Components:
     []
+- !<SceneObject/d04c510e-9a88-459a-bb7a-263086d64068>
+  PrefabRemaps:
+    []
+  Name: Orbit1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 90.000000, y: -0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 6a2807c6-6176-4b32-aea3-4f76e397d9f1
+  Components:
+    []
 - !<SceneObject/d0756c75-6244-49e5-a40b-639acf12a02b>
   PrefabRemaps:
     []
@@ -6916,6 +6948,24 @@
     - !<own> fc92c803-0560-44d3-977c-1691c48fa738
   Components:
     []
+- !<ScriptComponent/d8779e50-420e-4e1e-a654-38b7635a8e18>
+  PrefabRemaps:
+    []
+  Name: Orbit
+  Enabled: true
+  ScriptAsset: !<reference> 4bca937a-af95-4fa1-b9a6-2880c9d2e70e
+  ScriptInputsDefault:
+    rotationSpeed: true
+  ScriptTypesDefault:
+    Asteroid: true
+  ScriptInputs:
+    "":
+      rotationSpeed: 0.100000
+      orbitRadius: !<float> 35.000000
+      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
+  ScriptTypes:
+    "":
+      Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
 - !<ScriptComponent/d9a22ebf-8f42-4877-ad39-bba51fed6057>
   PrefabRemaps:
     []
@@ -7145,6 +7195,24 @@
     []
   Components:
     []
+- !<ScriptComponent/e116a48e-6838-484e-8f43-923f81ceea68>
+  PrefabRemaps:
+    []
+  Name: Orbit
+  Enabled: true
+  ScriptAsset: !<reference> 4bca937a-af95-4fa1-b9a6-2880c9d2e70e
+  ScriptInputsDefault:
+    rotationSpeed: true
+  ScriptTypesDefault:
+    Asteroid: true
+  ScriptInputs:
+    "":
+      rotationSpeed: 0.100000
+      orbitRadius: !<float> 35.000000
+      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
+  ScriptTypes:
+    "":
+      Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/e1a13826-d513-4b5d-b140-6bfd75fb5907>
   PrefabRemaps:
     []
@@ -7709,24 +7777,6 @@
     []
   Components:
     []
-- !<ScriptComponent/f5d3c358-8ec5-4c4e-a1b5-5486e71c4de6>
-  PrefabRemaps:
-    []
-  Name: Orbit
-  Enabled: true
-  ScriptAsset: !<reference> 4bca937a-af95-4fa1-b9a6-2880c9d2e70e
-  ScriptInputsDefault:
-    rotationSpeed: true
-  ScriptTypesDefault:
-    Asteroid: true
-  ScriptInputs:
-    "":
-      rotationSpeed: 0.100000
-      orbitRadius: !<float> 30.000000
-      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
-  ScriptTypes:
-    "":
-      Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
 - !<SceneObject/f6acdbbd-4c94-4464-90a6-d62906981fa6>
   PrefabRemaps:
     []
