@@ -1,3 +1,4 @@
+import { Orbit } from "./Orbit"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
 import { DestroyableObject } from "../../Scripts/DestroyableObject"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
@@ -16,6 +17,7 @@ export class Asteroid extends DestroyableObject {
     private finalPos : vec3
     private dir : vec3
     private spawnTime : number
+    private orbit: Orbit
     private isDestroying : boolean
 
     onAwake() {
@@ -25,6 +27,7 @@ export class Asteroid extends DestroyableObject {
         this.finalPos = pos.add(randomOffset);
         this.finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
         this.spawnTime = getTime();
+        this.orbit = null;
 
         // Orbit animation
         /*animate({
@@ -50,9 +53,16 @@ export class Asteroid extends DestroyableObject {
         //setTimeout(() => this.onDestroy(null), 4_000);
     }
 
-    onDestroy(hand: TrackedHand | null) {
+    public setOrbit(orbit: Orbit) {
+        this.orbit = orbit;
+    }
+
+    public onDestroyAsteroid() {
+        this.orbit.removeAsteroid(this as Asteroid)
+
+        print("DESTROYING AN ASTEROID")
+
         this.isDestroying = true;
-        console.log("ASTEROID DESTROY!");
         /*
         this.explosion.instantiate(null).getTransform()
             .setWorldTransform(this.getTransform().getWorldTransform());
@@ -71,6 +81,7 @@ export class Asteroid extends DestroyableObject {
     }
 
     public enterPlanet() {
+        print("ENTERING PLANET")
         const startPos = this.getTransform().getLocalPosition();
         this.particles.enabled = true;
         console.log("smash");
