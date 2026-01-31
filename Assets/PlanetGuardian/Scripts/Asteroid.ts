@@ -71,7 +71,8 @@ export class Asteroid extends BaseScriptComponent {
                 this.getTransform().setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
             },
             ended: () => {
-                this.sceneObject.destroy();
+                // this.sceneObject.destroy();
+                this.onDestroyAsteroid()
             },
         })
     }
