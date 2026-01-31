@@ -12,6 +12,7 @@
     - !<own> ed4f040c-60bc-4ee6-8914-14709e805437
     - !<own> b9c238d6-b867-43fe-a404-8a94189d67b6
     - !<own> c3e58a06-77bf-4861-9e5c-0a1bfdd7a889
+    - !<own> e10e90ab-06d0-4d56-ab18-beaa8fe2e4be
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
@@ -2787,6 +2788,21 @@
     - !<own> dcb6d2c5-c1ab-48c5-8730-18aaa3afcff3
   Components:
     []
+- !<SceneObject/4bcd74de-38a6-4159-9aea-10e85f500c7b>
+  PrefabRemaps:
+    []
+  Name: Score
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<ScriptComponent/4c59ed7c-d515-4076-b7d0-ca53331be764>
   PrefabRemaps:
     []
@@ -3780,7 +3796,7 @@
     "":
       rotationSpeed: 0.100000
       orbitRadius: !<float> 30.000000
-      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
+      asteroidPrefab: !<reference.ObjectPrefab> de3af7ec-b1d8-4f7d-82a0-76b8bbe1269c
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
@@ -4326,7 +4342,7 @@
     {}
   ScriptInputs:
     "":
-      rotationSpeed: !<float> 0.000000
+      rotationSpeed: 0.010000
   ScriptTypes:
     "":
       {}
@@ -6181,6 +6197,7 @@
     - !<own> ddc51b2c-a11f-438c-8a40-c258e037eeef
     - !<own> d04c510e-9a88-459a-bb7a-263086d64068
     - !<own> 0f6e1586-2f92-44b9-a416-b732328f3d28
+    - !<own> 4bcd74de-38a6-4159-9aea-10e85f500c7b
   Components:
     - !<own> 795b449a-5150-4fb4-9277-935f08b75ae5
 - !<SceneObject/b9eab4f1-8006-4fbb-8f88-e645aeeb6c79>
@@ -6962,7 +6979,7 @@
     "":
       rotationSpeed: 0.100000
       orbitRadius: !<float> 35.000000
-      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
+      asteroidPrefab: !<reference.ObjectPrefab> de3af7ec-b1d8-4f7d-82a0-76b8bbe1269c
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
@@ -7180,6 +7197,26 @@
     - !<own> 45b3a41d-5348-4b9a-9c1e-b5ec0066f128
   Components:
     - !<own> 0884b6f4-cf84-4fc2-883e-05f43ba535df
+- !<RenderMeshVisual/df9d9f7d-6698-478c-aba2-a84cba809ca4>
+  PrefabRemaps:
+    []
+  Name: Mesh Visual 1
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 87fe5ebb-6192-4450-90bd-d1928c1cdc16
+  Mesh: !<reference> 44252fd1-a3ca-416f-8332-2877858fa424
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/e0da7076-5892-4358-bce8-8ed229faf5b3>
   PrefabRemaps:
     []
@@ -7195,6 +7232,21 @@
     []
   Components:
     []
+- !<SceneObject/e10e90ab-06d0-4d56-ab18-beaa8fe2e4be>
+  PrefabRemaps:
+    []
+  Name: ToonFlame
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> df9d9f7d-6698-478c-aba2-a84cba809ca4
 - !<ScriptComponent/e116a48e-6838-484e-8f43-923f81ceea68>
   PrefabRemaps:
     []
@@ -7209,7 +7261,7 @@
     "":
       rotationSpeed: 0.100000
       orbitRadius: !<float> 35.000000
-      asteroidPrefab: !<reference.ObjectPrefab> 60d78304-aa77-4264-9d30-7f07902fb2b1
+      asteroidPrefab: !<reference.ObjectPrefab> de3af7ec-b1d8-4f7d-82a0-76b8bbe1269c
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000

@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    orbitRadius: false
     rotationSpeed: false
   ScriptTypesHidden:
     {}
@@ -37,8 +38,10 @@
     []
   DefaultScriptInputs:
     - rotationSpeed: 0.100000
+      orbitRadius: !<float> 25.000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input float rotationSpeed = 0.1
+    - // @input float orbitRadius = 25
