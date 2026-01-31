@@ -14,6 +14,23 @@
   ImporterSettings: !<AssetImporterSettings>
     {}
   CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<AudioComponent/0b95cbcc-87c2-4705-a85d-8ede823fa460>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 63a28c79-d1b3-4ab6-a1e1-ac9066b14977
+  EnableAutoplayLoop: true
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/12fcb726-2522-41bc-7348-426d9e4f970a>
   PrefabRemaps:
     []
@@ -27,6 +44,8 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> ace6dcca-710b-4c0a-4031-ce96ed3a8dcc
+    - !<own> af971ba7-0994-4d57-b02d-cdc49c9b0646
+    - !<own> b75ad1be-3a59-4f25-9647-3822707b7c39
   Components:
     - !<own> 46fa312f-d4dd-4b6e-7bf4-ab00f1ffe3b4
     - !<own> 9dc2bb66-b43b-4388-9982-17680f4d84c5
@@ -42,7 +61,7 @@
     {}
   ScriptInputs:
     "":
-      {}
+      squishAudio: !<reference.AudioComponent> f12340e5-4b6b-45da-becd-7bcbc850d8b6
   ScriptTypes:
     "":
       {}
@@ -126,7 +145,7 @@
     - a5a95d95-d7c7-4b9d-7b22-98ceaf35798c: 085a324d-0db1-4798-647d-ed176198d000
     - ace6dcca-710b-4c0a-4031-ce96ed3a8dcc: 294ce009-29f9-43b3-753a-098732c70cf6
     - fd3f26b2-0877-49be-7b14-dcb853897a2a: 300d85a2-ee2a-4b5a-745c-0583b5fe7c8c
-  Name: Alien
+  Name: Model
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -138,6 +157,53 @@
     - !<own> 856f0015-515c-46d6-594d-29a3fdb81993
   Components:
     []
+- !<SceneObject/af971ba7-0994-4d57-b02d-cdc49c9b0646>
+  PrefabRemaps:
+    []
+  Name: FX_Alien_ShipEngine
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 0b95cbcc-87c2-4705-a85d-8ede823fa460
+- !<SceneObject/b75ad1be-3a59-4f25-9647-3822707b7c39>
+  PrefabRemaps:
+    []
+  Name: FX_Alien_Squish
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f12340e5-4b6b-45da-becd-7bcbc850d8b6
+- !<AudioComponent/f12340e5-4b6b-45da-becd-7bcbc850d8b6>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> df2da2ae-beab-44a0-9a58-84821003230e
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/fd3f26b2-0877-49be-7b14-dcb853897a2a>
   PrefabRemaps:
     []

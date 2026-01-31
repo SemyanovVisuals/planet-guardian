@@ -7,12 +7,16 @@
 - !<SceneObject/12fcb726-2522-41bc-8cb7-bd9261b068f5>
   PrefabRemaps:
     - 12fcb726-2522-41bc-8cb7-bd9261b068f5: 12fcb726-2522-41bc-7348-426d9e4f970a
+    - 2ec40e57-fba3-4a74-b743-b204a45cf7d8: af971ba7-0994-4d57-b02d-cdc49c9b0646
+    - 36c8e934-1ecb-4db4-8683-802c4cc60778: b75ad1be-3a59-4f25-9647-3822707b7c39
     - 46fa312f-d4dd-4b6e-840b-54ff0e001c4b: 46fa312f-d4dd-4b6e-7bf4-ab00f1ffe3b4
+    - 7f19cc19-cdc2-4c90-8bd0-bf1ebc336d58: 0b95cbcc-87c2-4705-a85d-8ede823fa460
     - 856f0015-515c-46d6-a6b2-d65c0247e66c: 856f0015-515c-46d6-594d-29a3fdb81993
     - 95217ba7-705e-4fb5-81b8-9a9e23cbab02: 95217ba7-705e-4fb5-7e47-6561dc3454fd
     - a5a95d95-d7c7-4b9d-84dd-673150ca8673: a5a95d95-d7c7-4b9d-7b22-98ceaf35798c
     - ace6dcca-710b-4c0a-bfce-316912c57233: ace6dcca-710b-4c0a-4031-ce96ed3a8dcc
     - d8592047-ec79-4619-a139-f6d67a857b2e: 9dc2bb66-b43b-4388-9982-17680f4d84c5
+    - edcf5689-a3bd-46e1-b19a-813ecc381a10: f12340e5-4b6b-45da-becd-7bcbc850d8b6
     - fd3f26b2-0877-49be-84eb-2347ac7685d5: fd3f26b2-0877-49be-7b14-dcb853897a2a
   Name: Alien
   Enabled: true
@@ -24,9 +28,41 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> ace6dcca-710b-4c0a-bfce-316912c57233
+    - !<own> 2ec40e57-fba3-4a74-b743-b204a45cf7d8
+    - !<own> 36c8e934-1ecb-4db4-8683-802c4cc60778
   Components:
     - !<own> 46fa312f-d4dd-4b6e-840b-54ff0e001c4b
     - !<own> d8592047-ec79-4619-a139-f6d67a857b2e
+- !<SceneObject/2ec40e57-fba3-4a74-b743-b204a45cf7d8>
+  PrefabRemaps:
+    []
+  Name: FX_Alien_ShipEngine
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7f19cc19-cdc2-4c90-8bd0-bf1ebc336d58
+- !<SceneObject/36c8e934-1ecb-4db4-8683-802c4cc60778>
+  PrefabRemaps:
+    []
+  Name: FX_Alien_Squish
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> edcf5689-a3bd-46e1-b19a-813ecc381a10
 - !<ScriptComponent/46fa312f-d4dd-4b6e-840b-54ff0e001c4b>
   PrefabRemaps:
     []
@@ -39,10 +75,27 @@
     {}
   ScriptInputs:
     "":
-      {}
+      squishAudio: !<reference.AudioComponent> edcf5689-a3bd-46e1-b19a-813ecc381a10
   ScriptTypes:
     "":
       {}
+- !<AudioComponent/7f19cc19-cdc2-4c90-8bd0-bf1ebc336d58>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 63a28c79-d1b3-4ab6-a1e1-ac9066b14977
+  EnableAutoplayLoop: true
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/856f0015-515c-46d6-a6b2-d65c0247e66c>
   PrefabRemaps:
     []
@@ -100,7 +153,7 @@
     - a5a95d95-d7c7-4b9d-84dd-673150ca8673: 085a324d-0db1-4798-647d-ed176198d000
     - ace6dcca-710b-4c0a-bfce-316912c57233: 294ce009-29f9-43b3-753a-098732c70cf6
     - fd3f26b2-0877-49be-84eb-2347ac7685d5: 300d85a2-ee2a-4b5a-745c-0583b5fe7c8c
-  Name: Alien
+  Name: Model
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -130,6 +183,23 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
+- !<AudioComponent/edcf5689-a3bd-46e1-b19a-813ecc381a10>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> df2da2ae-beab-44a0-9a58-84821003230e
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/fd3f26b2-0877-49be-84eb-2347ac7685d5>
   PrefabRemaps:
     []
