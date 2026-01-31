@@ -9,13 +9,13 @@ export class Rocket extends BaseScriptComponent {
         this.sceneObject.getComponent("Physics.ColliderComponent").onCollisionEnter.add((arg) => {
             const asteroid = this.isAsteroid(arg.collision.collider.sceneObject);
             
-                this.onDestroy();
+            this.onDestroy();
             if (asteroid) {
                 asteroid.onDestroy(null);
             }
         });
         this.createEvent("UpdateEvent").bind(this.update.bind(this));
-        setTimeout(this.onDestroy.bind(this), 3_000);
+        setTimeout(this.onDestroy.bind(this), 10_000);
     } 
 
     isAsteroid(obj : SceneObject): Asteroid {

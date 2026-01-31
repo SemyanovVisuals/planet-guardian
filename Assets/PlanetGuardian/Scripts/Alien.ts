@@ -5,12 +5,20 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 @component
 export class Alien extends DestroyableObject {
     onAwake() {
-        const dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
-        const pos = dir.uniformScale(40.0);
+        const dir = vec3.randomDirection().normalize();
+        const pos = dir.uniformScale(45.0);
 
         this.getTransform().setLocalPosition(pos);
         
         this.createEvent("UpdateEvent").bind(this.update.bind(this));
+
+        animate({
+            easing: "ease-in-sine",
+            duration: 2,
+            update: (t: number) => {
+                this.getTransform()?.setLocalScale(vec3.lerp(vec3.zero(), vec3.one(), t))
+            },
+        })
     }
 
     onDestroy(hand: TrackedHand | null) {

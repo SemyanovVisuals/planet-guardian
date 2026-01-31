@@ -1,11 +1,13 @@
 import { Planet } from "./Planet"
 import { Orbit } from "./Orbit"
 import { Asteroid } from "./Asteroid"
+import { Alien } from "./Alien"
 import { setInterval } from "./Util"
 
 @component
 export class GameManager extends BaseScriptComponent {
     @input planet : Planet
+    @input alienPrefab : ObjectPrefab
     @input orbits : Orbit[]
 
     onAwake() {
@@ -18,6 +20,10 @@ export class GameManager extends BaseScriptComponent {
                 this.orbits[i].spawnAsteroid();
             }
         }, 1000 * 2);
+
+        setInterval(() => {
+            this.alienPrefab.instantiate(this.sceneObject);
+        }, 1000 * 5);
 
         // setInterval(() => {
         //     const res = this.getRandomAsteroid();
