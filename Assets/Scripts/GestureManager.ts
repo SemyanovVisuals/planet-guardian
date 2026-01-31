@@ -1,6 +1,7 @@
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
 import {GrabbableObject} from "./GrabbableObject"
+import {Sphere} from "./Sphere"
 
 /**
  * Manages pinch-to-grab interactions for objects with GrabbableObject components.
@@ -65,6 +66,10 @@ export class GestureManager extends BaseScriptComponent {
   private leftHandOverlappingObjects: Set<GrabbableObject> = new Set()
   private rightHandOverlappingObjects: Set<GrabbableObject> = new Set()
 
+  // Track sphere objects per hand
+  private leftHandOverlappingSphereObjects: Set<Sphere> = new Set()
+  private rightHandOverlappingSphereObjects: Set<Sphere> = new Set()
+
   // Debug sphere instances
   private leftIndexDebugSphere: SceneObject | null = null
   private leftThumbDebugSphere: SceneObject | null = null
@@ -82,7 +87,7 @@ export class GestureManager extends BaseScriptComponent {
     this.setupGestureEvents(GestureModule.HandType.Left)
     this.setupGestureEvents(GestureModule.HandType.Right)
 
-    // Log once per pinch
+    // TEMP: Log once per pinch
     this.rightHand?.onPinchDown.add(() => print("✅ Right pinch down"))
     this.rightHand?.onPinchUp.add(() => print("🟦 Right pinch up"))
 
@@ -270,6 +275,7 @@ export class GestureManager extends BaseScriptComponent {
     // Set up overlap events
     collider.onOverlapEnter.add((e: OverlapEnterEventArgs) => {
       this.onFingerOverlapEnter(e, isLeftHand)
+      print("OVERLAP")
     })
 
     collider.onOverlapExit.add((e: OverlapExitEventArgs) => {
@@ -290,8 +296,9 @@ export class GestureManager extends BaseScriptComponent {
     print(`GestureManager: ${handName} hand finger detected overlap with ${overlappedObject.name}`)
 
     // Check if this object has a GrabbableObject component
-    // const sphere = this.findSphereObjectComponent(overlappedObject)
     const grabbable = this.findGrabbableObjectComponent(overlappedObject)
+
+    const sphere = this.findSphereObjectComponent(overlappedObject)
 
     if (grabbable) {
       // Add to the set of overlapping objects for this hand
@@ -341,20 +348,20 @@ export class GestureManager extends BaseScriptComponent {
     return null
   }
 
-  // /**
-  //  * Find SphereObject component on a scene object
-  //  */
-  // private findSphereObjectComponent(sceneObject: SceneObject): Sphere | null {
-  //   const allComponents = sceneObject.getComponents("Component.ScriptComponent")
-  //   for (let i = 0; i < allComponents.length; i++) {
-  //     const comp = allComponents[i]
-  //     // Check if this is a GrabbableObject by checking if it has the required methods
-  //     if (comp && typeof (comp as any).onGrab === "function" && typeof (comp as any).onRelease === "function") {
-  //       return comp as Sphere
-  //     }
-  //   }
-  //   return null
-  // }
+  /**
+   * Find GrabbableObject component on a scene object
+   */
+  private findSphereObjectComponent(sceneObject: SceneObject): Sphere | null {
+    const allComponents = sceneObject.getComponents("Component.ScriptComponent")
+    for (let i = 0; i < allComponents.length; i++) {
+      const comp = allComponents[i]
+      // Check if this is a GrabbableObject by checking if it has the required methods
+      if (comp && typeof (comp as any).onGrab === "function" && typeof (comp as any).onRelease === "function") {
+        return comp as Sphere
+      }
+    }
+    return null
+  }
 
   private setupGestureEvents(handType: GestureModule.HandType) {
     const handName = handType === GestureModule.HandType.Left ? "Left" : "Right"
