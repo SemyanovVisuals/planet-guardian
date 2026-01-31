@@ -12,7 +12,7 @@ export class TriggerObject extends BaseScriptComponent {
         this.colliderComponent = this.getSceneObject().getComponent("Physics.ColliderComponent")
     }
 
-    onTrigger(hand: TrackedHand) {
+    onTrigger() {
         if(!this.isTriggered){
             this.isTriggered = true
             print("🚀 LAUNCH THE ROCKET")

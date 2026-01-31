@@ -2,6 +2,7 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
 import {GrabbableObject} from "./GrabbableObject"
 import {DestroyableObject} from "./DestroyableObject"
+import { TriggerObject } from "./TriggerObject"
 
 /**
  * Manages pinch-to-grab interactions for objects with GrabbableObject components.
@@ -302,6 +303,7 @@ export class GestureManager extends BaseScriptComponent {
     // Check if this object has a GrabbableObject component
     const grabbable = this.findGrabbableObjectComponent(overlappedObject)
     const destroyable = this.findDestroyableObjectComponent(overlappedObject)
+    const trigger = this.findTriggerObjectComponent(overlappedObject)
 
     if (grabbable) {
       // Add to the set of overlapping objects for this hand
@@ -332,6 +334,10 @@ export class GestureManager extends BaseScriptComponent {
       }
     } else {
       print(`GestureManager: ✗ ${overlappedObject.name} does not have DestroyableObject component`)
+    }
+
+    if (trigger) {
+      trigger.onTrigger();
     }
   }
 
@@ -402,6 +408,22 @@ export class GestureManager extends BaseScriptComponent {
       // Check if this is a GrabbableObject by checking if it has the required methods
       if (comp && typeof (comp as any).onDestroy === "function") {
         return comp as DestroyableObject
+      }
+    }
+    return null
+  }
+
+  /**
+   * Find TriggerObject component on a scene object
+   */
+  private findTriggerObjectComponent(sceneObject: SceneObject): TriggerObject | null {
+    print("CHECKING IF TRIGGER")
+    const allComponents = sceneObject.getComponents("Component.ScriptComponent")
+    for (let i = 0; i < allComponents.length; i++) {
+      const comp = allComponents[i]
+      // Check if this is a TriggerObject by checking if it has the required methods
+      if (comp && typeof (comp as any).onTrigger === "function") {
+        return comp as TriggerObject
       }
     }
     return null
