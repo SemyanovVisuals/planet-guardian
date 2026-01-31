@@ -1634,7 +1634,7 @@
     - c86b924d-d78a-494c-84e6-ef21160b965e: 7a9f50ee-4b2f-4b25-744f-2a76db81cacf
     - d5d9a960-cabc-4c7d-be16-71335f4f9b0c: d6078a76-b756-4778-55f7-d29649af0469
   Name: TennisRacketMobileController
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -1.326126, y: -14.753265, z: -19.272087}

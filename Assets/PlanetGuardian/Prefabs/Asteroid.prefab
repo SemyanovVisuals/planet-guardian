@@ -109,6 +109,22 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ScriptComponent/e845fa79-33d6-422a-a46d-a635b9c4316f>
+  PrefabRemaps:
+    []
+  Name: DestroyableObject
+  Enabled: true
+  ScriptAsset: !<reference> 200bf33e-a328-42dd-8976-22d8898aff4d
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e9067406-a210-4d0a-96b4-8283d97d4c92>
   PrefabRemaps:
     - 21258205-7d6a-4dc1-b615-718e21c9a7dd: 21258205-7d6a-4dc1-49ea-8e71de365822
@@ -117,6 +133,7 @@
     - bb63ad40-8f21-4af4-90dc-e48a9067b952: bb63ad40-8f21-4af4-6f23-1b756f9846ad
     - bdb0306c-0415-4985-8bbe-49f4a25cd367: bdb0306c-0415-4985-7441-b60b5da32c98
     - e07723c6-7632-41a6-ae6f-ed66a8dfd1ff: e07723c6-7632-41a6-5190-129957202e00
+    - e845fa79-33d6-422a-a46d-a635b9c4316f: 72762fce-e0de-4117-9e0a-0f4fb2cf5692
     - e9067406-a210-4d0a-96b4-8283d97d4c92: e9067406-a210-4d0a-694b-7d7c2682b36d
     - f7db1824-7a68-45a9-bf31-c500cdea45cf: f7db1824-7a68-45a9-40ce-3aff3215ba30
     - fb4391d8-a391-4d20-a98b-f9e425446691: fb4391d8-a391-4d20-5674-061bdabb996e
@@ -133,6 +150,7 @@
     - !<own> bb63ad40-8f21-4af4-90dc-e48a9067b952
   Components:
     - !<own> 21258205-7d6a-4dc1-b615-718e21c9a7dd
+    - !<own> e845fa79-33d6-422a-a46d-a635b9c4316f
 - !<SceneObject/f7db1824-7a68-45a9-bf31-c500cdea45cf>
   PrefabRemaps:
     []
