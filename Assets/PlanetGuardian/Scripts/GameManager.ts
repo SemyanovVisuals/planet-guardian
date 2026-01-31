@@ -16,7 +16,7 @@ export class GameManager extends BaseScriptComponent {
         setInterval(() => {
             const res = this.getRandomAsteroid();
             console.log(res);    
-            res?.enterPlanet()
+            (res as any)?.enterPlanet()
         }, 1000 * 5);
     }
 
@@ -25,7 +25,7 @@ export class GameManager extends BaseScriptComponent {
         return this.orbits[orbitIdx];
     }
 
-    private getRandomAsteroid() : Asteroid | null {
+    private getRandomAsteroid() : object | null {
         // TODO: At the moment it is not guranteed to actually return an asteroid even if one exists,
         // as the random orbit it picked might have no asteroids at the moment
         const orbit = this.getRandomOrbit();

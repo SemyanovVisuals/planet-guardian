@@ -29,17 +29,20 @@ export class Orbit extends BaseScriptComponent {
     }
 
     // TODO: Doesnt seam to work
-    public getAsteroids(): Asteroid[] {
-        const asteroids = []
+    public getAsteroids(): object[] {
+        var asteroids = []
 
-        for (var i = 0; i < this.sceneObject.getChildrenCount(); i++) {
-            const obj = this.sceneObject.getChild(i);
-            for (const script of obj.getComponents("Component.ScriptComponent")) {
+        for (var i = 0; i < this.getSceneObject().getChildrenCount(); i++) {
+            const obj = this.getSceneObject().getChild(i);
+            const allComponents = obj.getComponents("Component.ScriptComponent")
+            for (let j = 0; j < allComponents.length; j++) {
+                const script = allComponents[j]
                 if (script.getTypeName().toString() == Asteroid.getTypeName().toString()) {
+                   // console.log((script as any).enterPlanet());
                     asteroids.push(script);
                 }
             }
-        }
+        } 
 
         return asteroids;
     }
