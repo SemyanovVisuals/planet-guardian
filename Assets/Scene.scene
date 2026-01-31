@@ -1654,7 +1654,7 @@
     - c86b924d-d78a-494c-84e6-ef21160b965e: 7a9f50ee-4b2f-4b25-744f-2a76db81cacf
     - d5d9a960-cabc-4c7d-be16-71335f4f9b0c: d6078a76-b756-4778-55f7-d29649af0469
   Name: TennisRacketMobileController
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -1.326126, y: -14.753265, z: -19.272087}
@@ -2529,7 +2529,7 @@
   PrefabRemaps:
     []
   Name: ScoreBoard
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 6.644608, z: -270.000000}
@@ -3024,7 +3024,7 @@
   PrefabRemaps:
     []
   Name: TestingDestroyableBox
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -15.194206, y: 0.000000, z: -36.732719}
@@ -5696,7 +5696,7 @@
   PrefabRemaps:
     []
   Name: ToolPicker
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: -35.000000, z: -60.000000}
@@ -6075,7 +6075,7 @@
     - c6edd168-414d-4e6d-954c-1963b26903a2: 2811bcd6-2db3-49bb-56d3-e2ce474696a3
     - edee08f6-2107-4698-afbb-284c4c7db5ff: 2c8234fb-590a-4965-6ab0-43721a5b3234
   Name: TestingDestroyableSphere
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 11.668650, y: -2.744668, z: -55.256271}
