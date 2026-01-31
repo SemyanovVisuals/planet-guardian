@@ -29,6 +29,7 @@
     "":
       model: !<reference.SceneObject> fb4391d8-a391-4d20-5674-061bdabb996e
       particles: !<reference.SceneObject> bb63ad40-8f21-4af4-6f23-1b756f9846ad
+      explosion: !<reference.ObjectPrefab> c6052d47-0dbe-47a3-ba73-d39c4a36e6bd
       rotationSpeed: 0.100000
       orbitRadius: !<float> 25.000000
   ScriptTypes:
@@ -82,22 +83,6 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
-- !<ScriptComponent/72762fce-e0de-4117-9e0a-0f4fb2cf5692>
-  PrefabRemaps:
-    []
-  Name: DestroyableObject
-  Enabled: true
-  ScriptAsset: !<reference> 200bf33e-a328-42dd-8976-22d8898aff4d
-  ScriptInputsDefault:
-    {}
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      {}
-  ScriptTypes:
-    "":
-      {}
 - !<SceneObject/bb63ad40-8f21-4af4-6f23-1b756f9846ad>
   PrefabRemaps:
     []
@@ -174,7 +159,6 @@
     - !<own> bb63ad40-8f21-4af4-6f23-1b756f9846ad
   Components:
     - !<own> 21258205-7d6a-4dc1-49ea-8e71de365822
-    - !<own> 72762fce-e0de-4117-9e0a-0f4fb2cf5692
     - !<own> 69652f0a-8b19-4439-93d1-f46404fae0bd
 - !<SceneObject/f7db1824-7a68-45a9-40ce-3aff3215ba30>
   PrefabRemaps:
