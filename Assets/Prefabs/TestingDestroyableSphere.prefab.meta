@@ -1,0 +1,92 @@
+- !<AssetImportMetadata/cc7a81f6-63fe-4a08-bed0-12707aa64d11>
+  ImportedAssetIds:
+    ObjectPrefab: !<reference> 92e88374-d5fe-4bb9-b8a4-da389d2ccae3
+  ImporterName: ObjectPrefabImporter
+  PrimaryAsset: !<reference> 92e88374-d5fe-4bb9-b8a4-da389d2ccae3
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    ObjectPrefab: !<own> 4a525421-26ee-4416-a5de-56333afdb5c9
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ColliderComponent/2811bcd6-2db3-49bb-56d3-e2ce474696a3>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: true
+    Radius: 6.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
+- !<ScriptComponent/2c8234fb-590a-4965-6ab0-43721a5b3234>
+  PrefabRemaps:
+    []
+  Name: DestroyableObject
+  Enabled: true
+  ScriptAsset: !<reference> 200bf33e-a328-42dd-8976-22d8898aff4d
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
+- !<RenderMeshVisual/2d718f94-cfbc-48b3-6f6c-411526dbea9c>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 530cf13e-5e41-48ce-876e-7dbcd0408986
+  Mesh: !<reference> df2e3c19-b55b-4eb1-9629-88dc02096d68
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ObjectPrefabAssetData/4a525421-26ee-4416-a5de-56333afdb5c9>
+  Prototype: !<ObjectOwner/9d172fd5-9623-482f-acbd-50f7b90ec592>
+    PackagePath: ""
+    objects:
+      - !<own> 79852cf6-89e8-4278-57ca-9b55ba24fb7a
+- !<SceneObject/79852cf6-89e8-4278-57ca-9b55ba24fb7a>
+  PrefabRemaps:
+    []
+  Name: TestingDestroyableSphere
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 15.421329, z: -59.740860}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 20.000000, y: 20.000000, z: 20.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2d718f94-cfbc-48b3-6f6c-411526dbea9c
+    - !<own> 2c8234fb-590a-4965-6ab0-43721a5b3234
+    - !<own> 2811bcd6-2db3-49bb-56d3-e2ce474696a3
