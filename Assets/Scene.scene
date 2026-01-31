@@ -3554,6 +3554,7 @@
   ScriptInputs:
     "":
       planet: !<MappingBased.AssignableType> 795b449a-5150-4fb4-9277-935f08b75ae5
+      alienPrefab: !<reference.ObjectPrefab> 584356df-4a56-4d71-b56d-d2fd70e50704
       orbits: !<MappingBased.AssignableType_1[]>
         - !<reference> 6008fe37-4f01-490b-9002-9bf846f69724
         - !<reference> d8779e50-420e-4e1e-a654-38b7635a8e18
@@ -5222,7 +5223,7 @@
   PrefabRemaps:
     []
   Name: Mask
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 5.513757, z: -7.723856}

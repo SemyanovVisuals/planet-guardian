@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    alienPrefab: false
     orbits: false
     planet: false
   ScriptTypesHidden:
@@ -38,6 +39,7 @@
     []
   DefaultScriptInputs:
     - planet: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      alienPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       orbits: !<MappingBased.AssignableType_1[]>
         []
   ScriptTypes:
@@ -45,4 +47,5 @@
       {}
   InputLines:
     - // @input AssignableType planet
+    - // @input Asset.ObjectPrefab alienPrefab
     - "// @input AssignableType_1[] orbits"

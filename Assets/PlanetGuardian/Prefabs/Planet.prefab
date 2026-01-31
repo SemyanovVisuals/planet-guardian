@@ -550,12 +550,13 @@
   Enabled: true
   ScriptAsset: !<reference> c5f55135-3aff-4bbe-8b7b-56480dfb3c48
   ScriptInputsDefault:
-    {}
+    alienPrefab: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       planet: !<MappingBased.AssignableType> 48c4a60c-40b7-43c9-a688-afaaf684b370
+      alienPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       orbits: !<MappingBased.AssignableType_1[]>
         - !<reference> 52fbb552-697d-4814-858a-0734146036d2
         - !<reference> 881aeda5-6903-4712-abfd-9f19296b8523
