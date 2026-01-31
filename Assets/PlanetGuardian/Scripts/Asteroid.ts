@@ -97,7 +97,8 @@ export class Asteroid extends DestroyableObject {
                 this.getTransform().setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
             },
             ended: () => {
-                this.sceneObject.destroy();
+                // this.sceneObject.destroy();
+                this.onDestroyAsteroid()
             },
         })
     }

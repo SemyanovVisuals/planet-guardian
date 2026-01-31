@@ -25,11 +25,14 @@ export class GameManager extends BaseScriptComponent {
             this.alienPrefab.instantiate(this.sceneObject);
         }, 1000 * 5);
 
-        // setInterval(() => {
-        //     const res = this.getRandomAsteroid();
-        //     console.log(res);    
-        //     (res as any)?.enterPlanet()
-        // }, 1000 * 5);
+
+        let interval = this.randint(5, 10)
+
+        setInterval(() => {
+            const res = this.getRandomAsteroid();
+            console.log(res);    
+            (res as any)?.enterPlanet()
+        }, 1000 * interval);
     }
 
     private getRandomOrbit() : Orbit {
@@ -48,10 +51,15 @@ export class GameManager extends BaseScriptComponent {
         if (asteroids.length == 0)
             return null;
 
-        return asteroids[Math.random() * asteroids.length];
+        return asteroids[Math.floor(Math.random() * asteroids.length)];
     }
 
     private update() {
         // Main Game Loop
     }
+
+    private randint(min: number, max: number): number {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
 }
