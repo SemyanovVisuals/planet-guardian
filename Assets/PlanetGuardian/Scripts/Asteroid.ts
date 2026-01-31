@@ -8,7 +8,8 @@ import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUti
 export class Asteroid extends DestroyableObject {
     @input model : SceneObject
     @input particles : SceneObject
-    @input explosion : ObjectPrefab
+    @input explosion : ObjectPrefab    
+    @input audioSpawn : AudioComponent
     @input rotationSpeed : number = 0.1
     @input orbitRadius : number = 30.0
     
@@ -21,6 +22,7 @@ export class Asteroid extends DestroyableObject {
     private isDestroying : boolean
 
     onAwake() {
+        this.audioSpawn.play(1);
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
         const pos = this.dir.uniformScale(this.orbitRadius);
         const randomOffset = vec3.randomDirection();

@@ -8,9 +8,11 @@ import { setInterval } from "./Util"
 export class GameManager extends BaseScriptComponent {
     @input planet : Planet
     @input alienPrefab : ObjectPrefab
+    @input audioIntroduction : AudioComponent
     @input orbits : Orbit[]
 
     onAwake() {
+        this.audioIntroduction.play(1);
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
         // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);

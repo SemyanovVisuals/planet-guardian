@@ -30,6 +30,7 @@
       model: !<reference.SceneObject> fb4391d8-a391-4d20-5674-061bdabb996e
       particles: !<reference.SceneObject> bb63ad40-8f21-4af4-6f23-1b756f9846ad
       explosion: !<reference.ObjectPrefab> c6052d47-0dbe-47a3-ba73-d39c4a36e6bd
+      audioSpawn: !<reference.AudioComponent> 69dc8109-2b62-4ff3-b87b-20cc48ba4692
       rotationSpeed: 0.100000
       orbitRadius: !<float> 25.000000
   ScriptTypes:
@@ -83,6 +84,38 @@
   ForceCompound: false
   Intangible: false
   ShowCollider: false
+- !<AudioComponent/69dc8109-2b62-4ff3-b87b-20cc48ba4692>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 6125d479-ee6b-4c40-bc99-85749e1fdb33
+  EnableAutoplayLoop: false
+  Volume: 0.500000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: true
+  EnableDistanceEffect: true
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 50.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: true
+- !<SceneObject/7118066b-7784-4ee7-ae83-2039f17ef51a>
+  PrefabRemaps:
+    []
+  Name: FX_Asteroid_Spawn
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 69dc8109-2b62-4ff3-b87b-20cc48ba4692
 - !<SceneObject/bb63ad40-8f21-4af4-6f23-1b756f9846ad>
   PrefabRemaps:
     []
@@ -155,6 +188,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> 7118066b-7784-4ee7-ae83-2039f17ef51a
     - !<own> fb4391d8-a391-4d20-5674-061bdabb996e
     - !<own> bb63ad40-8f21-4af4-6f23-1b756f9846ad
   Components:

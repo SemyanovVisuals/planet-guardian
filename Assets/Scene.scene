@@ -600,6 +600,21 @@
     - !<own> 1aafad92-2f9a-43ff-b9a5-46ebe1ad4a00
   Components:
     []
+- !<SceneObject/10560e09-b0d4-435f-a7f2-3d82161c6ba4>
+  PrefabRemaps:
+    []
+  Name: Vocal_Instruction_Mockup
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 12de9182-a482-41a6-932b-029bf5c73362
 - !<SceneObject/11644010-a4cf-448f-9e06-e0f83cb1dfb3>
   PrefabRemaps:
     []
@@ -615,6 +630,23 @@
     - !<own> 04dd91b6-2460-4988-b21e-d26194603fcf
   Components:
     []
+- !<AudioComponent/12de9182-a482-41a6-932b-029bf5c73362>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 124e6c6b-ed3e-4a79-a586-98ed7fb3866f
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/12eeb8c4-2481-4a15-9d8a-6c47845089ff>
   PrefabRemaps:
     []
@@ -1250,6 +1282,21 @@
     []
   Components:
     - !<own> 6008fe37-4f01-490b-9002-9bf846f69724
+- !<SceneObject/212865b7-1015-49c9-9b55-573bdfcdebd5>
+  PrefabRemaps:
+    []
+  Name: GGJ26-Music-Style1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 873cda3f-ecbd-49d3-bd24-985e922c49ab
 - !<SceneObject/214695d9-6df4-4937-a98d-334cbf05fd75>
   PrefabRemaps:
     []
@@ -3555,6 +3602,7 @@
     "":
       planet: !<MappingBased.AssignableType> 795b449a-5150-4fb4-9277-935f08b75ae5
       alienPrefab: !<reference.ObjectPrefab> 584356df-4a56-4d71-b56d-d2fd70e50704
+      audioIntroduction: !<reference.AudioComponent> 12de9182-a482-41a6-932b-029bf5c73362
       orbits: !<MappingBased.AssignableType_1[]>
         - !<reference> 6008fe37-4f01-490b-9002-9bf846f69724
         - !<reference> d8779e50-420e-4e1e-a654-38b7635a8e18
@@ -5249,6 +5297,23 @@
     - !<own> ac4b164d-c823-4f45-85d0-e5f13b80d857
   Components:
     []
+- !<AudioComponent/873cda3f-ecbd-49d3-bd24-985e922c49ab>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> e41d7671-4b1e-473b-b7d7-b4c387a95e54
+  EnableAutoplayLoop: true
+  Volume: 0.480000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/877f397e-75a3-4e03-ab65-f9148ea6ef6f>
   PrefabRemaps:
     []
@@ -6921,29 +6986,48 @@
     []
 - !<SceneObject/b9c238d6-b867-43fe-a404-8a94189d67b6>
   PrefabRemaps:
+    - 055fd311-4aab-430d-855d-d8a46f430035: a5114c73-7cd9-4ef1-9173-684be7cf59e5
     - 0ed0d36b-41f7-4014-8e12-9d5f4af3a602: 96abdc08-e7b6-4bc9-b679-89f43875a8b6
     - 0f6e1586-2f92-44b9-a416-b732328f3d28: 6f314f9c-cfb9-475b-ab10-ff3f0055222f
+    - 10560e09-b0d4-435f-a7f2-3d82161c6ba4: 3d81a3b4-099c-4d48-affa-7eb33ccfedc2
+    - 12de9182-a482-41a6-932b-029bf5c73362: a29c9274-fb95-4502-8d3c-b2572ef39321
+    - 136ed7aa-3f95-4aa2-b309-ce7cc2a678a2: a87d4998-331e-4c8d-9d93-6b790846e28b
+    - 169bcf8d-b12b-4d09-bfc6-ce5d248833c5: 9d6c0ea6-f2e2-4e47-961a-de037a1bf8b7
     - 1aafad92-2f9a-43ff-b9a5-46ebe1ad4a00: f720264a-f58b-4db3-b7dd-ffa12f23dda6
     - 20455cb2-3f8a-4980-915d-f020d4e09722: 4269e534-6fb4-4626-a5dd-38435b733ac9
     - 2121e513-2dd1-412c-bc20-1287da4d9cdb: 81d375e7-9561-4756-bdf0-06ed3adc73ba
     - 252d39d0-6c6a-404c-8cff-421adffc765d: 342cb0d2-2b6c-4272-b64b-6a51ddb0f506
     - 27653b2d-db82-45a2-8241-9b2ecbf0cfd3: 770dd753-f289-4df8-4d96-bdd67ed59344
+    - 2c3dcf23-ca97-41a0-90e4-b741e4321b3c: 5f0e9e2d-c764-445b-91e8-205a4a6ca62e
+    - 2ff7def0-97df-47f6-afb9-50597e685f33: 252c114a-e115-4a2c-b179-538ae5771cb4
+    - 326bc770-393e-4ce5-a792-f32b2f7ce8c8: 64160131-3110-49d4-88e5-0187f6693154
     - 3e11f932-2c77-479b-8927-5aeb6d53a0c3: 4a01b496-93f6-43ae-6c3d-de029feab50e
+    - 3e662121-03e6-475a-bca7-fca149ef18c4: 60f559c2-b378-44b0-9acb-bbe0812e3568
+    - 41074777-d475-4111-a8dd-db42469fcaa3: a5c9ef8e-36aa-42ea-b50f-0940757ff4f2
+    - 42945c89-b94d-4925-b42f-a2e6dd7b2e42: 2849849a-cd22-4c66-9012-f2a5f8049207
     - 4bcd74de-38a6-4159-9aea-10e85f500c7b: ab6125de-2899-4cb5-8a20-a998563d8dc0
+    - 522d3f65-e331-47ea-a35d-9323b18c136e: 572d1dfe-4d80-4c90-91b5-7d4290531ccb
     - 52cf803f-ca97-45e2-8f0e-06c9aa428e34: 9fdf56b9-253b-4fe1-b6eb-ffcabf841c10
+    - 5ae30a51-8848-4ec7-a9c8-8daf52ecdaf1: 102c2dcd-ba6d-448c-9402-2f922babe539
     - 5b44e198-551b-44a9-8503-9e86c398c298: 4aca1712-3f06-4456-8648-96961c4d8231
     - 6008fe37-4f01-490b-9002-9bf846f69724: fcff0b59-407d-4069-b799-846de91b2a8f
+    - 618e4dce-8cc1-4822-87e4-3ef1b078aa33: 3c11208d-d8e9-4241-8431-041ee3c5f998
     - 62514429-df5a-464d-93b8-84378765525c: 1ddd68f8-fb7e-4a9f-a61a-6f5999b20a5a
+    - 626cc2f4-0833-4027-b8ee-be6d99560757: 04a3c8b1-66c0-48fe-916a-126cbaf163ef
+    - 62ff2577-7bb9-479e-878e-c807cd52ea76: be0f8722-14dd-4639-b366-5d660ae3f92d
     - 6505f3a2-074b-437e-8de4-2eb74055d9ad: 14096a08-7e12-4d45-4b7f-28ea4a804789
     - 6a2807c6-6176-4b32-aea3-4f76e397d9f1: 0a9ca118-4b0e-47f1-ae6f-a5a3447a5c5a
     - 70759df5-1178-4a33-a8fa-e94914b40828: 5159eb1d-f71e-4202-92e7-3874cdd789a1
+    - 7413b0f8-cc2c-47b1-9e03-f26b96599bad: 791862e9-00ea-4ac6-a0f1-33b7c1c945fe
     - 746e9229-5d19-4860-93b7-0b6aeae08126: ab96de8d-ab65-429e-78be-4f0b2718758e
     - 755e2608-a8b7-4465-aa5f-20350123be3b: 0b44c6e6-65fe-4ece-8dc8-2e6c7e07e90f
     - 7655d5b4-ad43-442d-a17e-c5f16d0bb269: bb0d4832-ca86-484a-92c5-73828ef0ed53
     - 795b449a-5150-4fb4-9277-935f08b75ae5: 48c4a60c-40b7-43c9-5977-5055097b4c8f
+    - 79dbba1d-eb5a-417b-9fa8-f5c88caa77a2: 7a510597-f7b7-4e4a-a4b6-f5aac536f5fc
     - 7e12c976-ed6e-4fff-b705-ad4ddb560012: 541139bf-d006-4ad5-8913-5da76a6e4c45
     - 8453d262-0fa8-4f06-98d2-6770c8208bbb: 446df633-b8f3-41d7-8540-73cb13394e1c
     - 883bc3f1-d7e8-4c75-9a24-9cc3639caa23: b115fcde-449b-4bee-b9b1-4aadbd8fe8a2
+    - 8beccd2d-4784-4cca-bf5b-89140ee4db56: eb2f765e-bffd-435f-9b20-a491fb882181
     - 946cc296-f058-4ec0-83f5-bda14955cd96: cda2078e-7683-4ca7-5d04-b0385571b84c
     - a7b225b7-5d6c-4f6e-a067-6481cd9b0c5a: 8756c5bc-2dbc-479c-8ca2-58f4e353b8ae
     - b9c238d6-b867-43fe-a404-8a94189d67b6: 5c317e55-8776-4b1f-465b-96341ebd38ec
@@ -6952,15 +7036,19 @@
     - c3e58a06-77bf-4861-9e5c-0a1bfdd7a889: d6f5af89-8520-469e-a376-cf928a61cbda
     - c8eca25e-5859-42e6-9ada-c411b06419e0: 330fcefd-7856-47dc-7447-ae170e240fcf
     - d04c510e-9a88-459a-bb7a-263086d64068: c9617448-0c0c-45a1-a91f-6bc4e7d728ae
+    - d3aa079a-47ac-4112-84b3-59c61ca51da4: 9bcbf645-93cd-4aab-9878-85725f33fc48
     - d8779e50-420e-4e1e-a654-38b7635a8e18: 07fc7a01-969e-459a-b8ce-f73919e635fb
+    - d8c90df2-139f-44c7-baf4-59c568b008e6: d1c81289-8745-4122-9ce7-3d0791c86f5c
     - dc2b48bb-7c03-4208-b2fa-82e5caa7b320: 7c40d50a-205b-4894-a503-f3b694b76101
     - ddc51b2c-a11f-438c-8a40-c258e037eeef: 617238c2-c2a3-424e-9a6e-88698f09205e
     - e116a48e-6838-484e-8f43-923f81ceea68: 1074d2ef-8aaf-4c29-a18a-ceea7d2f7074
     - e372adc0-1c9a-477e-b7b0-4db1b34be52a: 456d998e-790a-4170-bccd-eb4ce02bb11b
     - eaf5b86e-62c0-4f52-b082-14475fca4c1e: 4856bb49-7abe-4b05-40a0-44f95f240b46
     - ebf250b0-c3f1-4ff0-8a06-c59f4bf393cc: 0e820658-2a08-408d-b9e5-680eb9f78088
+    - ed21ddb2-68ac-406b-89c9-fd3dafc848d9: 4564a411-8665-446a-9821-0a93ddb46724
     - f289b965-293a-42f3-b112-02ed8cdbc224: e9267552-7abb-400f-5df7-d04710b2e813
     - f6acdbbd-4c94-4464-90a6-d62906981fa6: 1b463395-455c-4bde-534c-154a5f036195
+    - f74b372e-60a2-45b8-be57-5683c3e3fdc1: 3da0637c-50f9-41cf-b7d6-d56568df311e
   Name: Planet
   Enabled: true
   Layers: 1
@@ -6971,6 +7059,8 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> c3e58a06-77bf-4861-9e5c-0a1bfdd7a889
+    - !<own> 212865b7-1015-49c9-9b55-573bdfcdebd5
+    - !<own> 10560e09-b0d4-435f-a7f2-3d82161c6ba4
     - !<own> c8eca25e-5859-42e6-9ada-c411b06419e0
     - !<own> ddc51b2c-a11f-438c-8a40-c258e037eeef
     - !<own> d04c510e-9a88-459a-bb7a-263086d64068
