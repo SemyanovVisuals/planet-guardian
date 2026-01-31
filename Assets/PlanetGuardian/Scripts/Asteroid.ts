@@ -1,17 +1,22 @@
-import animate, {CancelSet} from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import { DestroyableObject } from "../../Scripts/DestroyableObject"
+import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
+import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
 
 @component
-export class Asteroid extends BaseScriptComponent {
+export class Asteroid extends DestroyableObject {
     @input model : SceneObject
     @input particles : SceneObject
+    @input explosion : ObjectPrefab
     @input rotationSpeed : number = 0.1
-    @input orbitRadius : number = 25.0
+    @input orbitRadius : number = 30.0
     
     private rotation : vec3
     private finalScale : vec3
     private finalPos : vec3
     private dir : vec3
     private spawnTime : number
+    private isDestroying : boolean
 
     onAwake() {
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
@@ -41,11 +46,28 @@ export class Asteroid extends BaseScriptComponent {
         // This is so that the flame particles are moving in the correct direction
         this.getTransform()
             .setLocalRotation(quat.rotationFromTo(vec3.zero(), this.finalPos))
+
+        //setTimeout(() => this.onDestroy(null), 4_000);
     }
 
-    public onDestroy() {
-       // this.cancelSet.cancel();
-        this.sceneObject.destroy();
+    onDestroy(hand: TrackedHand | null) {
+        this.isDestroying = true;
+        console.log("ASTEROID DESTROY!");
+        /*
+        this.explosion.instantiate(null).getTransform()
+            .setWorldTransform(this.getTransform().getWorldTransform());
+        this.sceneObject.destroy()*/
+
+        const currentScale = this.getTransform().getLocalScale();
+
+        animate({
+            easing: "ease-out-bounce",
+            duration: 1,
+            update: (t: number) => {
+                this.getTransform()?.setLocalScale(vec3.lerp(currentScale, vec3.zero(), t))
+            },
+            ended: () => this.sceneObject.destroy(),
+        })
     }
 
     public enterPlanet() {
@@ -66,6 +88,8 @@ export class Asteroid extends BaseScriptComponent {
     }
 
     private update() {
+        if (this.isDestroying) return;
+
         const timePast = Math.min((getTime() - this.spawnTime) / 10.0, 1.0);
         const t = Math.sin(timePast * (Math.PI / 2));
         const rotation = quat.fromEulerVec(this.rotation.uniformScale(getTime() * this.rotationSpeed));
