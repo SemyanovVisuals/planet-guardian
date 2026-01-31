@@ -58,11 +58,15 @@ export class Asteroid extends DestroyableObject {
     }
 
     public onDestroyAsteroid() {
+        if (this.isDestroying)
+            return;
+        
         this.orbit.removeAsteroid(this as Asteroid)
 
         print("DESTROYING AN ASTEROID")
 
         this.isDestroying = true;
+
         /*
         this.explosion.instantiate(null).getTransform()
             .setWorldTransform(this.getTransform().getWorldTransform());

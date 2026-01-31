@@ -4,6 +4,8 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 
 @component
 export class Alien extends DestroyableObject {
+    @input squishAudio : AudioComponent
+
     onAwake() {
         const dir = vec3.randomDirection().normalize();
         const pos = dir.uniformScale(45.0);
@@ -26,8 +28,10 @@ export class Alien extends DestroyableObject {
 
         const currentScale = this.getTransform().getLocalScale();
 
+        this.squishAudio.play(1);
+
         animate({
-            easing: "ease-out-bounce",
+            easing: "ease-out-cubic",
             duration: 1,
             update: (t: number) => {
                 this.getTransform()?.setLocalScale(vec3.lerp(currentScale, vec3.zero(), t))

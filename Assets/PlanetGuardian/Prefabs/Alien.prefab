@@ -12,6 +12,7 @@
     - 95217ba7-705e-4fb5-81b8-9a9e23cbab02: 95217ba7-705e-4fb5-7e47-6561dc3454fd
     - a5a95d95-d7c7-4b9d-84dd-673150ca8673: a5a95d95-d7c7-4b9d-7b22-98ceaf35798c
     - ace6dcca-710b-4c0a-bfce-316912c57233: ace6dcca-710b-4c0a-4031-ce96ed3a8dcc
+    - d8592047-ec79-4619-a139-f6d67a857b2e: 9dc2bb66-b43b-4388-9982-17680f4d84c5
     - fd3f26b2-0877-49be-84eb-2347ac7685d5: fd3f26b2-0877-49be-7b14-dcb853897a2a
   Name: Alien
   Enabled: true
@@ -25,6 +26,7 @@
     - !<own> ace6dcca-710b-4c0a-bfce-316912c57233
   Components:
     - !<own> 46fa312f-d4dd-4b6e-840b-54ff0e001c4b
+    - !<own> d8592047-ec79-4619-a139-f6d67a857b2e
 - !<ScriptComponent/46fa312f-d4dd-4b6e-840b-54ff0e001c4b>
   PrefabRemaps:
     []
@@ -110,6 +112,24 @@
     - !<own> 856f0015-515c-46d6-a6b2-d65c0247e66c
   Components:
     []
+- !<ColliderComponent/d8592047-ec79-4619-a139-f6d67a857b2e>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: false
+    Radius: 2.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<SceneObject/fd3f26b2-0877-49be-84eb-2347ac7685d5>
   PrefabRemaps:
     []
