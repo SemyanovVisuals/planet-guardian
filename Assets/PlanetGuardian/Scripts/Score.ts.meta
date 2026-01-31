@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/48c5f275-e2b4-4773-a27e-c7ab6618174d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a746a87a-b82d-431d-a965-f49dbb3507cd
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a746a87a-b82d-431d-a965-f49dbb3507cd
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 49c3a6b8-5e16-4e6c-9ce8-a3f5e8bd36d1
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/49c3a6b8-5e16-4e6c-9ce8-a3f5e8bd36d1>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: bb44fd3e-a4e7-482a-86d2-c740052582bb
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    camera: false
+    populationText: false
+    rocketsText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      populationText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      rocketsText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.Camera camera
+    - // @input Component.Text populationText
+    - // @input Component.Text rocketsText

@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/6afc9a9d-7c90-49ff-bf0a-7736e8edb310>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 438ed84e-b64b-462d-a778-4a7fde31a4f8
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 438ed84e-b64b-462d-a778-4a7fde31a4f8
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 95b51efd-fa55-4032-94b8-dea93125b6d8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/95b51efd-fa55-4032-94b8-dea93125b6d8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: eaa2f146-9f17-4732-a270-1c9123f4b805
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    model: false
+    orbitRadius: false
+    particles: false
+    rotationSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      particles: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rotationSpeed: 0.100000
+      orbitRadius: !<float> 25.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject model
+    - // @input SceneObject particles
+    - // @input float rotationSpeed = 0.1
+    - // @input float orbitRadius = 25

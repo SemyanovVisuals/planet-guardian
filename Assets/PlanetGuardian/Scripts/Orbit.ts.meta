@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/99a4478f-7cfa-4318-892f-03dc5bcca52c>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 4bca937a-af95-4fa1-b9a6-2880c9d2e70e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 4bca937a-af95-4fa1-b9a6-2880c9d2e70e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 858673ad-c0f0-406a-b663-00675ef1a03b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/858673ad-c0f0-406a-b663-00675ef1a03b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: eaa2f146-9f17-4732-a270-1c9123f4b805
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    asteroidPrefab: false
+    orbitRadius: false
+    rotationSpeed: false
+  ScriptTypesHidden:
+    Asteroid: false
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - rotationSpeed: 0.100000
+      orbitRadius: !<float> 100.000000
+      asteroidPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    - Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
+  InputLines:
+    - // @input float rotationSpeed = 0.1
+    - // @input float orbitRadius = 20
+    - // @input Asset.ObjectPrefab asteroidPrefab
+    - // @typename Asteroid
