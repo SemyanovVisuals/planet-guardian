@@ -132,6 +132,7 @@
     "":
       squishAudio: !<reference.AudioComponent> edcf5689-a3bd-46e1-b19a-813ecc381a10
       beam: !<reference.SceneObject> 0f991f41-bcc8-4ecc-9244-d29b68e432c3
+      model: !<reference.SceneObject> ace6dcca-710b-4c0a-bfce-316912c57233
   ScriptTypes:
     "":
       {}
@@ -230,8 +231,8 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> a8b475be-7866-4b1d-9b3b-c8ba1afd5c87
-  Mesh: !<reference> a59d729b-90a1-4d01-92a0-8a4292327eca
+    - !<reference> 59a366ec-3cd6-41dc-84b6-ab09a6b64dbb
+  Mesh: !<reference> 4baf2c23-ab72-454e-aab0-e79faa82952e
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
   BlendNormals: false

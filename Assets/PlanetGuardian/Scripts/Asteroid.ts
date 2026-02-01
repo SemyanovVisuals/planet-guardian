@@ -24,7 +24,7 @@ export class Asteroid extends DestroyableObject {
     onAwake() {
         this.audioSpawn.play(1);
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
-        const pos = this.dir.uniformScale(this.orbitRadius);
+        const pos = this.dir.uniformScale(this.orbitRadius + Math.random() * 5.0);
         const randomOffset = vec3.randomDirection();
         this.finalPos = pos.add(randomOffset);
         this.finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
@@ -49,8 +49,9 @@ export class Asteroid extends DestroyableObject {
         this.rotation = vec3.randomDirection().uniformScale(Math.random() * 2 + 1)
         
         // This is so that the flame particles are moving in the correct direction
-        this.getTransform()
-            .setLocalRotation(quat.rotationFromTo(vec3.zero(), this.finalPos))
+        const rot = quat.rotationFromTo(vec3.up(), this.dir);
+        this.getTransform().setLocalRotation(rot);
+        //this.particles.enabled = true;
 
         //setTimeout(() => this.onDestroy(null), 4_000);
     }

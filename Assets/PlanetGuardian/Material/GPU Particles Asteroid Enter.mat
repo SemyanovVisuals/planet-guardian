@@ -171,10 +171,10 @@
       value: 1.000000
     colorEnd:
       typeIdx: 4
-      value: {x: 0.105882, y: 0.101961, z: 0.090196}
+      value: {x: 0.356863, y: 0.309804, z: 0.231373}
     colorStart:
       typeIdx: 4
-      value: {x: 1.000000, y: 0.576471, z: 0.152941}
+      value: {x: 1.000000, y: 0.521569, z: 0.043137}
     customForceOrigin:
       typeIdx: 4
       value: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -189,7 +189,7 @@
       value: 0.000000
     lifeTimeMinMax:
       typeIdx: 3
-      value: {x: 2.000000, y: 4.000000}
+      value: {x: 2.000000, y: 7.000000}
     mainTexture:
       typeIdx: 9
       value:
@@ -249,7 +249,7 @@
       value: 0.000000
     spawnSphere:
       typeIdx: 4
-      value: {x: 3.000000, y: 3.000000, z: 3.000000}
+      value: {x: 6.000000, y: 6.000000, z: 6.000000}
     timeGlobal:
       typeIdx: 1
       value: 1.000000
@@ -261,5 +261,5 @@
       value: {x: 0.000000, y: 0.000000, z: 0.000000}
     velocityMin:
       typeIdx: 4
-      value: {x: -6.000000, y: 0.000000, z: 0.000000}
+      value: {x: 0.000000, y: -15.000000, z: 0.000000}
   Pass: !<reference> fc622343-d881-412c-ac80-02cf3183e927
