@@ -79,7 +79,9 @@ export class GameManager extends BaseScriptComponent {
         var temp = this.audioMusicNormal.volume
         this.audioMusicNormal.volume = this.audioMusicScan.volume
         this.audioMusicScan.volume = temp;
-        this.camera.renderLayer = LayerSet.fromNumber(0).union(LayerSet.fromNumber(this.mix.enabled ? 1 : 2));
+        this.camera.renderLayer = this.mix.enabled ?
+         LayerSet.fromNumber(1).union(LayerSet.fromNumber(2)) :
+            LayerSet.fromNumber(0).union(LayerSet.fromNumber(2));
     }
     private randint(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;

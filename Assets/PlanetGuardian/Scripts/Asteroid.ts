@@ -92,7 +92,7 @@ export class Asteroid extends DestroyableObject {
     public tryRedirect() {
         if (this.isFalling) {
             this.isFalling = false
-            this.particles.enabled = true;
+            this.particles.enabled = false;
             print("REDIRECT")
 
             this.isReturning = true

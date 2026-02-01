@@ -4,6 +4,7 @@ import {GrabbableObject} from "./GrabbableObject"
 import {DestroyableObject} from "./DestroyableObject"
 import { TriggerObject } from "./TriggerObject"
 import { Asteroid } from "../PlanetGuardian/Scripts/Asteroid"
+import { GameManager } from "../PlanetGuardian/Scripts/GameManager"
 
 /**
  * Manages pinch-to-grab interactions for objects with GrabbableObject components.
@@ -39,6 +40,9 @@ export class GestureManager extends BaseScriptComponent {
     "Optional: Prefab for debug spheres on right hand (index and thumb) - control visibility via mesh renderer in prefab"
   )
   debugRightHandPrefab: ObjectPrefab
+
+  @input
+  gameManager: GameManager
 
   private gestureModule = require("LensStudio:GestureModule") as GestureModule
 
@@ -485,15 +489,18 @@ export class GestureManager extends BaseScriptComponent {
     // Update pinch state
     if (isLeft) {
       this.leftPinchActive = true
+
+      this.attemptToggleMask()
     } else {
       this.rightPinchActive = true
+
+      // Try to grab with pinch gesture
+      this.attemptGrab(handType, "pinch")
+
+      // Try to destroy with pinch gesture
+      this.attemptDestroy(handType, "pinch")
     }
 
-    // Try to grab with pinch gesture
-    this.attemptGrab(handType, "pinch")
-
-    // Try to destroy with pinch gesture
-    this.attemptDestroy(handType, "pinch")
   }
 
   private onGrabBegin(handType: GestureModule.HandType) {
@@ -567,6 +574,11 @@ export class GestureManager extends BaseScriptComponent {
         }
       }
     }
+  }
+
+  private attemptToggleMask() {
+    print("GestureManager: TOGGLE MASK")
+    this.gameManager.toggleScanner()
   }
 
   private attemptDestroy(handType: GestureModule.HandType, gestureType: "pinch") {

@@ -29,6 +29,7 @@
     debugLeftHandPrefab: false
     debugRightHandPrefab: false
     detectionRadius: false
+    gameManager: false
     leftHandTrackingAsset: false
     minPinchStrength: false
     rightHandTrackingAsset: false
@@ -47,6 +48,7 @@
       minPinchStrength: 0.300000
       debugLeftHandPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       debugRightHandPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -57,3 +59,4 @@
     - '// @input float minPinchStrength = 0.3 {"hint":"Minimum pinch strength to maintain grab (0-1)"}'
     - '// @input Asset.ObjectPrefab debugLeftHandPrefab {"hint":"Optional: Prefab for debug spheres on left hand (index and thumb) - control visibility via mesh renderer in prefab"}'
     - '// @input Asset.ObjectPrefab debugRightHandPrefab {"hint":"Optional: Prefab for debug spheres on right hand (index and thumb) - control visibility via mesh renderer in prefab"}'
+    - // @input AssignableType gameManager
