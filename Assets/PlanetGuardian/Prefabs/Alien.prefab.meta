@@ -87,13 +87,14 @@
   Enabled: true
   ScriptAsset: !<reference> b3672c37-c961-4446-b4e9-fdfdd2b80c84
   ScriptInputsDefault:
-    {}
+    model: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       squishAudio: !<reference.AudioComponent> f12340e5-4b6b-45da-becd-7bcbc850d8b6
       beam: !<reference.SceneObject> c0f49681-40a1-4802-b18e-928cd229a1a5
+      model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

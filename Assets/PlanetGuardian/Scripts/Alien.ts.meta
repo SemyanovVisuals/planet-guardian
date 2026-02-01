@@ -27,6 +27,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     beam: false
+    model: false
     squishAudio: false
   ScriptTypesHidden:
     {}
@@ -39,9 +40,11 @@
   DefaultScriptInputs:
     - squishAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       beam: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.AudioComponent squishAudio
     - // @input SceneObject beam
+    - // @input SceneObject model
