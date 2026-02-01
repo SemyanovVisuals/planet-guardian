@@ -28,6 +28,10 @@
   ScriptInputsHidden:
     alienPrefab: false
     audioIntroduction: false
+    audioMusicNormal: false
+    audioMusicScan: false
+    camera: false
+    mix: false
     orbits: false
     planet: false
   ScriptTypesHidden:
@@ -42,8 +46,12 @@
     - planet: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       alienPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       audioIntroduction: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      audioMusicNormal: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      audioMusicScan: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       orbits: !<MappingBased.AssignableType_1[]>
         []
+      camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
+      mix: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -51,4 +59,8 @@
     - // @input AssignableType planet
     - // @input Asset.ObjectPrefab alienPrefab
     - // @input Component.AudioComponent audioIntroduction
+    - // @input Component.AudioComponent audioMusicNormal
+    - // @input Component.AudioComponent audioMusicScan
     - "// @input AssignableType_1[] orbits"
+    - // @input Component.Camera camera
+    - // @input SceneObject mix

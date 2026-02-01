@@ -12,13 +12,17 @@
     - !<own> b9c238d6-b867-43fe-a404-8a94189d67b6
     - !<own> a80e5131-85fd-43bb-b456-0da24d972998
     - !<own> ae77f56b-a613-4f52-b5df-1c3625eacee3
-    - !<own> 871a21be-ee27-42c1-b550-29536fa11d6a
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - |
-        id: 14
-        name: Layer 1
+        id: 1
+        name: Alien
         color: 0
+
+      - |
+        id: 2
+        name: UI
+        color: 1
 
     HasOrtho: true
   RenderOutput: !<reference> 923415f5-4245-4675-ade1-6d69d6d23e71
@@ -28,7 +32,7 @@
 - !<SceneObject/00000000-0000-0065-0000-000000000064>
   PrefabRemaps:
     []
-  Name: Camera Object
+  Name: Final
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
@@ -37,7 +41,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
-    []
+    - !<own> c5ba56f3-3f1e-4994-b0e9-d3dc07efae53
   Components:
     - !<own> 00000000-0000-0065-0000-000000000065
     - !<own> e5553c8a-0b7e-4ef4-92d9-3e1318fb82c1
@@ -47,7 +51,7 @@
     []
   Name: Camera
   Enabled: true
-  renderLayer: 1
+  renderLayer: 5
   MipmapLevel: 0
   RenderOrder: 0
   Size: 20.000000
@@ -109,7 +113,7 @@
     []
   Name: Light Source
   Enabled: true
-  renderLayer: 1
+  renderLayer: 1048579
   LightType: Ambient
   Intensity: 0.700000
   CastShadows: false
@@ -560,7 +564,7 @@
     []
   Name: Image
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: -1.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -991,26 +995,6 @@
     - !<own> 1adc69e9-abeb-42cc-abc8-945dca2265c1
   Components:
     []
-- !<RenderMeshVisual/1bc8f156-49de-43d9-ad8f-13cbd5cf52f9>
-  PrefabRemaps:
-    []
-  Name: Render Mesh Visual
-  Enabled: true
-  RenderOrder: 0
-  StretchMode: Stretch
-  VerticalAlignment: Center
-  HorizontalAlignment: Center
-  MeshShadowMode: None
-  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
-  ShadowDensity: 1.000000
-  Materials:
-    - !<reference> 8d4c7d49-6af0-4d50-afe1-ce57a60a3583
-  Mesh: !<reference> ac02aa5e-0116-42e3-9c02-50c2f959a64a
-  Skin: !<reference> 00000000-0000-0000-0000-000000000000
-  BlendShapesEnabled: true
-  BlendNormals: false
-  BlendShapes:
-    {}
 - !<SceneObject/1c175c32-03ea-4d24-8be6-33288c578d73>
   PrefabRemaps:
     []
@@ -1377,7 +1361,7 @@
     []
   Name: Rockets
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: -0.800000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -1753,6 +1737,20 @@
     - !<own> 5bd0fdf5-6359-4692-9350-1fc7e82f92b4
   Components:
     []
+- !<PostEffectVisual/30a909b6-a489-4bdd-badc-fd9e733812d7>
+  PrefabRemaps:
+    []
+  Name: Post Effect
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 3c788f23-8a63-4016-939e-eb88a658f5bb
 - !<AudioComponent/30e50526-6458-4880-abd5-52f66dd8895b>
   PrefabRemaps:
     []
@@ -2007,6 +2005,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/3bec279f-4df9-4f10-9a38-91e64292f6e0>
+  PrefabRemaps:
+    []
+  Name: Vocal_Instruction_Mockup 1
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 766d1584-00ee-4680-b22f-c594d7208c34
 - !<SceneObject/3d256658-f8db-4ecb-87b2-3927584c8a1c>
   PrefabRemaps:
     []
@@ -3071,7 +3084,7 @@
     []
   Name: Score
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 12.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3603,10 +3616,14 @@
       planet: !<MappingBased.AssignableType> 795b449a-5150-4fb4-9277-935f08b75ae5
       alienPrefab: !<reference.ObjectPrefab> 584356df-4a56-4d71-b56d-d2fd70e50704
       audioIntroduction: !<reference.AudioComponent> 12de9182-a482-41a6-932b-029bf5c73362
+      audioMusicNormal: !<reference.AudioComponent> 873cda3f-ecbd-49d3-bd24-985e922c49ab
+      audioMusicScan: !<reference.AudioComponent> 766d1584-00ee-4680-b22f-c594d7208c34
       orbits: !<MappingBased.AssignableType_1[]>
         - !<reference> 6008fe37-4f01-490b-9002-9bf846f69724
         - !<reference> d8779e50-420e-4e1e-a654-38b7635a8e18
         - !<reference> e116a48e-6838-484e-8f43-923f81ceea68
+      camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
+      mix: !<reference.SceneObject> c5ba56f3-3f1e-4994-b0e9-d3dc07efae53
   ScriptTypes:
     "":
       {}
@@ -4666,7 +4683,7 @@
     []
   Name: Text
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.150010}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -4883,6 +4900,23 @@
     CapitalizationOverride: None
   DepthTest: false
   TwoSided: false
+- !<AudioComponent/766d1584-00ee-4680-b22f-c594d7208c34>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 124e6c6b-ed3e-4a79-a586-98ed7fb3866f
+  EnableAutoplayLoop: true
+  Volume: 0.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<ScriptComponent/795b449a-5150-4fb4-9277-935f08b75ae5>
   PrefabRemaps:
     []
@@ -5046,7 +5080,7 @@
     []
   Name: Population
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.800000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -5267,21 +5301,6 @@
     []
   Components:
     []
-- !<SceneObject/871a21be-ee27-42c1-b550-29536fa11d6a>
-  PrefabRemaps:
-    []
-  Name: MaskEffect
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 5.513757, z: -7.723856}
-    Rotation: {x: 90.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    - !<own> 1bc8f156-49de-43d9-ad8f-13cbd5cf52f9
 - !<SceneObject/8729a451-c7c8-475b-b088-7246e2b13c26>
   PrefabRemaps:
     []
@@ -5304,7 +5323,7 @@
   Enabled: true
   AudioTrack: !<reference> e41d7671-4b1e-473b-b7d7-b4c387a95e54
   EnableAutoplayLoop: true
-  Volume: 0.480000
+  Volume: 0.280000
   EnableMixToSnap: false
   RecordVolume: 1.000000
   EnableSpatialAudio: false
@@ -6996,11 +7015,13 @@
     - 1aafad92-2f9a-43ff-b9a5-46ebe1ad4a00: f720264a-f58b-4db3-b7dd-ffa12f23dda6
     - 20455cb2-3f8a-4980-915d-f020d4e09722: 4269e534-6fb4-4626-a5dd-38435b733ac9
     - 2121e513-2dd1-412c-bc20-1287da4d9cdb: 81d375e7-9561-4756-bdf0-06ed3adc73ba
+    - 212865b7-1015-49c9-9b55-573bdfcdebd5: 69f310b8-1134-46d5-942c-8d290abd5022
     - 252d39d0-6c6a-404c-8cff-421adffc765d: 342cb0d2-2b6c-4272-b64b-6a51ddb0f506
     - 27653b2d-db82-45a2-8241-9b2ecbf0cfd3: 770dd753-f289-4df8-4d96-bdd67ed59344
     - 2c3dcf23-ca97-41a0-90e4-b741e4321b3c: 5f0e9e2d-c764-445b-91e8-205a4a6ca62e
     - 2ff7def0-97df-47f6-afb9-50597e685f33: 252c114a-e115-4a2c-b179-538ae5771cb4
     - 326bc770-393e-4ce5-a792-f32b2f7ce8c8: 64160131-3110-49d4-88e5-0187f6693154
+    - 3bec279f-4df9-4f10-9a38-91e64292f6e0: dba7ac1a-f151-4ef9-b5ff-d779710ec789
     - 3e11f932-2c77-479b-8927-5aeb6d53a0c3: 4a01b496-93f6-43ae-6c3d-de029feab50e
     - 3e662121-03e6-475a-bca7-fca149ef18c4: 60f559c2-b378-44b0-9acb-bbe0812e3568
     - 41074777-d475-4111-a8dd-db42469fcaa3: a5c9ef8e-36aa-42ea-b50f-0940757ff4f2
@@ -7022,10 +7043,12 @@
     - 746e9229-5d19-4860-93b7-0b6aeae08126: ab96de8d-ab65-429e-78be-4f0b2718758e
     - 755e2608-a8b7-4465-aa5f-20350123be3b: 0b44c6e6-65fe-4ece-8dc8-2e6c7e07e90f
     - 7655d5b4-ad43-442d-a17e-c5f16d0bb269: bb0d4832-ca86-484a-92c5-73828ef0ed53
+    - 766d1584-00ee-4680-b22f-c594d7208c34: f83e369a-3078-4e10-a9eb-8090ffe640ac
     - 795b449a-5150-4fb4-9277-935f08b75ae5: 48c4a60c-40b7-43c9-5977-5055097b4c8f
     - 79dbba1d-eb5a-417b-9fa8-f5c88caa77a2: 7a510597-f7b7-4e4a-a4b6-f5aac536f5fc
     - 7e12c976-ed6e-4fff-b705-ad4ddb560012: 541139bf-d006-4ad5-8913-5da76a6e4c45
     - 8453d262-0fa8-4f06-98d2-6770c8208bbb: 446df633-b8f3-41d7-8540-73cb13394e1c
+    - 873cda3f-ecbd-49d3-bd24-985e922c49ab: e831cdf3-1245-419e-b55a-3d1d4945cfbe
     - 883bc3f1-d7e8-4c75-9a24-9cc3639caa23: b115fcde-449b-4bee-b9b1-4aadbd8fe8a2
     - 8beccd2d-4784-4cca-bf5b-89140ee4db56: eb2f765e-bffd-435f-9b20-a491fb882181
     - 946cc296-f058-4ec0-83f5-bda14955cd96: cda2078e-7683-4ca7-5d04-b0385571b84c
@@ -7061,6 +7084,7 @@
     - !<own> c3e58a06-77bf-4861-9e5c-0a1bfdd7a889
     - !<own> 212865b7-1015-49c9-9b55-573bdfcdebd5
     - !<own> 10560e09-b0d4-435f-a7f2-3d82161c6ba4
+    - !<own> 3bec279f-4df9-4f10-9a38-91e64292f6e0
     - !<own> c8eca25e-5859-42e6-9ada-c411b06419e0
     - !<own> ddc51b2c-a11f-438c-8a40-c258e037eeef
     - !<own> d04c510e-9a88-459a-bb7a-263086d64068
@@ -7343,6 +7367,21 @@
     []
   Components:
     - !<own> 5b44e198-551b-44a9-8503-9e86c398c298
+- !<SceneObject/c5ba56f3-3f1e-4994-b0e9-d3dc07efae53>
+  PrefabRemaps:
+    []
+  Name: Analog TV
+  Enabled: false
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 30a909b6-a489-4bdd-badc-fd9e733812d7
 - !<SceneObject/c6cb16ad-b0fd-48ee-a4fe-258c8bd4a001>
   PrefabRemaps:
     []
@@ -8035,7 +8074,7 @@
     []
   Name: Text
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.150010}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8303,7 +8342,7 @@
     []
   Name: Image
   Enabled: true
-  Layers: 1
+  Layers: 4
   LocalTransform: !<TransformEntity>
     Position: {x: -1.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8848,7 +8887,7 @@
     []
   Name: Light Source
   Enabled: true
-  renderLayer: 1
+  renderLayer: 1048579
   LightType: Directional
   Intensity: 0.600000
   CastShadows: false

@@ -3,13 +3,18 @@ import { Orbit } from "./Orbit"
 import { Asteroid } from "./Asteroid"
 import { Alien } from "./Alien"
 import { setInterval } from "./Util"
+import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
 
 @component
 export class GameManager extends BaseScriptComponent {
     @input planet : Planet
     @input alienPrefab : ObjectPrefab
     @input audioIntroduction : AudioComponent
+    @input audioMusicNormal : AudioComponent
+    @input audioMusicScan : AudioComponent
     @input orbits : Orbit[]
+    @input camera : Camera
+    @input mix : SceneObject
 
     onAwake() {
         this.audioIntroduction.play(1);
@@ -26,6 +31,8 @@ export class GameManager extends BaseScriptComponent {
         setInterval(() => {
             this.alienPrefab.instantiate(this.sceneObject);
         }, 1000 * 5);
+
+        setTimeout(() => this.toggleScanner(), 5_000);
 
         // setInterval(() => {
         //     const res = this.getRandomAsteroid();
@@ -55,5 +62,13 @@ export class GameManager extends BaseScriptComponent {
 
     private update() {
         // Main Game Loop
+    }
+
+    public toggleScanner() {
+        this.mix.enabled = !this.mix.enabled;
+        var temp = this.audioMusicNormal.volume
+        this.audioMusicNormal.volume = this.audioMusicScan.volume
+        this.audioMusicScan.volume = temp;
+        this.camera.renderLayer = LayerSet.fromNumber(0).union(LayerSet.fromNumber(this.mix.enabled ? 1 : 2));
     }
 }
