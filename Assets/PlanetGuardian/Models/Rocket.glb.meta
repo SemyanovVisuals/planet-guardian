@@ -1,11 +1,15 @@
 - !<AssetImportMetadata/730de924-09db-4839-973d-e927e60d2491>
   ImportedAssetIds:
+    .hidden/Rocket: !<reference> d9335e14-d6ab-4cb2-aaac-6604d649a99d
     4e6c8797971782b8: !<reference> b5fab7ff-517f-465c-b952-6e168ef09e0e
     624f6792bd6e379e: !<reference> dfd60736-d469-4a58-9670-bcf52ee869fb
     7a0dd5cd69df73fa: !<reference> a1c8db0b-6503-4d9d-9953-5b4705300e7c
     7d7c85917975beff: !<reference> cfdded43-51f6-4bdd-b7b8-f1436d494540
+    Materials/Rocket: !<reference> a87d9356-9c3e-4dd8-b7e7-fc965b03080e
+    Materials/Rocket|Rocket|GraphPassInfo: !<reference> 04a68139-273c-4ca6-97fb-3842c165fe0a
     Meshes/Sphere: !<reference> e3319a58-0727-4b4b-8a79-935c57bb4def
     Scene: !<reference> 954eb3fc-4204-402e-9f2f-399daf66bc7b
+    Textures/Rocket: !<reference> d2a5a7ba-76bd-40ae-aaba-64050c185513
     acdcef40226ec16a: !<reference> 647cbeda-90ef-440d-869d-362809e43838
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> 954eb3fc-4204-402e-9f2f-399daf66bc7b

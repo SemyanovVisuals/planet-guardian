@@ -74,7 +74,7 @@
       value: 0
     baseColor:
       typeIdx: 5
-      value: {x: 0.937255, y: 0.592157, z: 0.596078, w: 1.000000}
+      value: {x: 0.631373, y: 0.384314, z: 0.392157, w: 1.000000}
     metallic:
       typeIdx: 1
       value: 1.000000

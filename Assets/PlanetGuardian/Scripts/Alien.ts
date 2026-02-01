@@ -6,6 +6,7 @@ import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/
 export class Alien extends DestroyableObject {
     @input squishAudio : AudioComponent
     @input beam : SceneObject
+    @input model : SceneObject
 
     onAwake() {
         const orbit = 45.0;
@@ -49,6 +50,6 @@ export class Alien extends DestroyableObject {
     }
 
     private update() {
-       // this.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
+        this.model.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
     }
 }
