@@ -1,6 +1,7 @@
 import { DestroyableObject } from "../../Scripts/DestroyableObject"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
+import { Score } from "./Score"
 
 @component
 export class Alien extends DestroyableObject {
@@ -8,7 +9,11 @@ export class Alien extends DestroyableObject {
     @input beam : SceneObject
     @input model : SceneObject
 
+    startTime : number
+
     onAwake() {
+        this.startTime = getTime()
+
         const orbit = 45.0;
         const dir = vec3.randomDirection();
         const pos = dir.uniformScale(orbit);
@@ -51,5 +56,11 @@ export class Alien extends DestroyableObject {
 
     private update() {
         this.model.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
+        
+        const currentTime = getTime()
+        if (currentTime - this.startTime > 100) {
+            Score.instance.damage(1);
+            this.startTime = currentTime;
+        }
     }
 }

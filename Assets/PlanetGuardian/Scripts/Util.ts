@@ -18,3 +18,22 @@ export function setInterval(callback: () => void, delay: number): any {
     }
   }
 }
+
+export function setIntervalRandom(callback: () => void, min: number, max: number): any {
+  let cancelled = false
+
+  const intervalFunc = () => {
+    if (!cancelled) {
+      callback()
+      setTimeout(intervalFunc, min + (max - min) * Math.random())
+    }
+  }
+
+  setTimeout(intervalFunc, min + (max - min) * Math.random())
+
+  return {
+    cancel: () => {
+      cancelled = true
+    }
+  }
+}
