@@ -1,6 +1,7 @@
 import { Orbit } from "./Orbit";
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 import { DestroyableObject } from "../../Scripts/DestroyableObject";
+import { Score } from "./Score";
 
 @component
 export class Asteroid extends DestroyableObject {
@@ -24,6 +25,8 @@ export class Asteroid extends DestroyableObject {
     private isReturning: boolean = false;
     private lastOrbitPos: vec3 = null;
 
+    private size : number
+
     onAwake() {
         const tr = this.getTransform();
         this.audioSpawn.play(1);
@@ -33,8 +36,8 @@ export class Asteroid extends DestroyableObject {
         const pos = this.dir.uniformScale(this.orbitRadius);
         const randomOffset = vec3.randomDirection();
         this.finalPos = pos.add(randomOffset);
-
-        this.finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
+        this.size = Math.random()
+        this.finalScale = vec3.one().uniformScale(this.size * 0.5 + 0.5);
         this.spawnTime = getTime();
 
         this.rotation = vec3.randomDirection().uniformScale(Math.random() * 2 + 1);
@@ -132,6 +135,7 @@ export class Asteroid extends DestroyableObject {
             if (newPos.distance(vec3.zero()) < 8) {
                 //tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
                 this.onDestroyAsteroid(); // Finalize asteroid destruction
+                Score.instance.impact(this.size);
                 // TODO: effect
             }
         } else if (this.isReturning) {

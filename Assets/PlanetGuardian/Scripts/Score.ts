@@ -9,18 +9,19 @@ export class Score extends BaseScriptComponent {
     private population : number = 1
     private rockets : number = 0
 
+    public static instance : Score
+
     onAwake() {
+        Score.instance = this;
         this.createEvent("UpdateEvent").bind(this.facePlayer.bind(this));
     
         setInterval(() => {
             this.population += 1 / Math.sqrt(this.population);
-            this.populationText.text = this.fmt(this.population);
         }, 10);
         
         setInterval(() => {
             this.rockets += 1;
-            this.rocketsText.text = this.rockets.toString();
-        }, 10_000);
+        }, 7_000);
     }
 
     private fmt(population: number): string {
@@ -44,7 +45,20 @@ export class Score extends BaseScriptComponent {
     }
 
     public impact(damage: number) {
-        this.population /= 2;
+        this.population *= Math.min(1.0, Math.max(0.0, 1.0 - damage));
+    }
+
+    public damage(damage: number) {
+        this.population -= damage;
+        this.population = Math.max(this.population, 0)
+    }
+
+    public takeRocket() : boolean {
+        if (this.rockets > 0) {
+            this.rockets--;
+            return true;
+        }
+        return false;
     }
 
     private facePlayer() {
@@ -52,5 +66,7 @@ export class Score extends BaseScriptComponent {
         const target = this.camera.getTransform().getWorldPosition();
         const dir = target.sub(src).normalize();
         this.getTransform().setWorldRotation(quat.lookAt(dir, vec3.up()));
+        this.populationText.text = this.fmt(this.population);
+        this.rocketsText.text = this.rockets.toString();
     }
 }

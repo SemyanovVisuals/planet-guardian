@@ -2,7 +2,7 @@ import { Planet } from "./Planet"
 import { Orbit } from "./Orbit"
 import { Asteroid } from "./Asteroid"
 import { Alien } from "./Alien"
-import { setInterval } from "./Util"
+import { setInterval, setIntervalRandom } from "./Util"
 import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
 
 @component
@@ -17,29 +17,27 @@ export class GameManager extends BaseScriptComponent {
     @input mix : SceneObject
 
     onAwake() {
+
         this.audioIntroduction.play(1);
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
         // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
         // For every orbit, spawn asteroids with an inteval
-        setInterval(() => {
+        setIntervalRandom(() => {
             for (let i = 0; i < this.orbits.length; i++) {
                 this.orbits[i].spawnAsteroid();
             }
-        }, 1000 * 2);
+        }, 2_000, 4_000);
 
-        setInterval(() => {
+        setIntervalRandom(() => {
             this.alienPrefab.instantiate(this.sceneObject);
-        }, 1000 * 5);
+        }, 15_000, 25_000);
 
 
-        let interval = this.randint(10, 15)
-
-        setInterval(() => {
+        setIntervalRandom(() => {
             const res = this.getRandomAsteroid();
-            console.log(res);    
             (res as any)?.enterPlanet()
-        }, 1000 * interval);
+        }, 10_000, 15_000);
     }
 
     private getRandomOrbit() : Orbit {
