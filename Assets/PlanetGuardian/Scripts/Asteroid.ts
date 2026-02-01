@@ -118,9 +118,10 @@ export class Asteroid extends DestroyableObject {
             tr.setLocalPosition(newPos);
 
             // If we are very close to the center (Earth), finalize fall
-            if (newPos.distance(vec3.zero()) < 0.5) {
-                tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
+            if (newPos.distance(vec3.zero()) < 8) {
+                //tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
                 this.onDestroyAsteroid(); // Finalize asteroid destruction
+                // TODO: effect
             }
         }
     }

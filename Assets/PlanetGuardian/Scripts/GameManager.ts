@@ -28,7 +28,7 @@ export class GameManager extends BaseScriptComponent {
         }, 1000 * 5);
 
 
-        let interval = this.randint(5, 10)
+        let interval = this.randint(10, 15)
 
         setInterval(() => {
             const res = this.getRandomAsteroid();

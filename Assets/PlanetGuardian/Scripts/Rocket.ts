@@ -3,22 +3,11 @@ import { Asteroid } from "./Asteroid";
 
 @component
 export class Rocket extends BaseScriptComponent {
-    //private startTime: number;
 
     onAwake() {
-        // this.sceneObject.getComponent("Physics.ColliderComponent").onCollisionEnter.add((arg) => {
-        //     const asteroid = this.findAsteroidComponent()
-            
-        //     this.onDestroy();
-        //     if (asteroid) {
-        //         asteroid.onDestroy(null);
-        //     }
-        // });
-
         const collider = this.sceneObject.getComponent("Physics.ColliderComponent")
 
         collider.onOverlapEnter.add((e: OverlapEnterEventArgs) => {
-            // this.onFingerOverlapEnter(e, isLeftHand)
             this.onRocketOverlapEnter(e)
         })
 

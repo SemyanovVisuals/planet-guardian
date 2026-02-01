@@ -331,6 +331,24 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<ColliderComponent/2d304894-8d57-4cc9-9d7d-e5ed7678b13c>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Sphere>
+    FitVisual: false
+    Radius: 8.000000
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<ScriptComponent/30a99e32-5aea-47bf-a0e3-605bb93dc67d>
   PrefabRemaps:
     []
@@ -550,6 +568,7 @@
     - 207ab884-0086-44a1-a629-33043b6e4b22: 102c2dcd-ba6d-448c-9402-2f922babe539
     - 213cf96c-fcbc-4dc7-b022-10c5693d8a66: a87d4998-331e-4c8d-9d93-6b790846e28b
     - 2a6488b3-f4ee-435c-afbd-27b02b74bbc6: a5c9ef8e-36aa-42ea-b50f-0940757ff4f2
+    - 2d304894-8d57-4cc9-9d7d-e5ed7678b13c: 210c3f94-5e91-4ddb-98fb-c32fd6a75e48
     - 30a99e32-5aea-47bf-a0e3-605bb93dc67d: 0b44c6e6-65fe-4ece-8dc8-2e6c7e07e90f
     - 30dc602e-2c4e-4592-8835-6384f2caafc2: 617238c2-c2a3-424e-9a6e-88698f09205e
     - 3262c5d5-1d08-45cf-b677-3215c9af16dd: 446df633-b8f3-41d7-8540-73cb13394e1c
@@ -617,6 +636,7 @@
     - !<own> 9184966b-bb21-445a-8d19-6baaa3dafa4b
   Components:
     - !<own> 48c4a60c-40b7-43c9-a688-afaaf684b370
+    - !<own> 2d304894-8d57-4cc9-9d7d-e5ed7678b13c
 - !<ScriptComponent/612b3091-9496-4af3-b8e3-66a0b9524c49>
   PrefabRemaps:
     []
