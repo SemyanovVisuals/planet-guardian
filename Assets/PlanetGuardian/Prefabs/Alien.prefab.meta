@@ -21,16 +21,16 @@
   Enabled: true
   AudioTrack: !<reference> 63a28c79-d1b3-4ab6-a1e1-ac9066b14977
   EnableAutoplayLoop: true
-  Volume: 1.000000
+  Volume: 0.750000
   EnableMixToSnap: false
   RecordVolume: 1.000000
   EnableSpatialAudio: true
-  EnableDistanceEffect: false
+  EnableDistanceEffect: true
   CurveType: Logarithm
   MinDistance: 0.000000
-  MaxDistance: 100.000000
+  MaxDistance: 300.000000
   EnableDirectivityEffect: false
-  EnablePositionEffect: false
+  EnablePositionEffect: true
 - !<SceneObject/12fcb726-2522-41bc-7348-426d9e4f970a>
   PrefabRemaps:
     []
@@ -43,12 +43,43 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> c0f49681-40a1-4802-b18e-928cd229a1a5
     - !<own> ace6dcca-710b-4c0a-4031-ce96ed3a8dcc
     - !<own> af971ba7-0994-4d57-b02d-cdc49c9b0646
     - !<own> b75ad1be-3a59-4f25-9647-3822707b7c39
   Components:
     - !<own> 46fa312f-d4dd-4b6e-7bf4-ab00f1ffe3b4
     - !<own> 9dc2bb66-b43b-4388-9982-17680f4d84c5
+- !<SceneObject/1428f9f1-743f-4076-9812-de5c56cfd0ee>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 3f19dee0-8187-4e23-8296-d88ae5231c24
+  Components:
+    []
+- !<SceneObject/3f19dee0-8187-4e23-8296-d88ae5231c24>
+  PrefabRemaps:
+    []
+  Name: Scene
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 52ef601e-ffec-448b-b7ae-733500abfbf5
+  Components:
+    []
 - !<ScriptComponent/46fa312f-d4dd-4b6e-7bf4-ab00f1ffe3b4>
   PrefabRemaps:
     []
@@ -62,9 +93,45 @@
   ScriptInputs:
     "":
       squishAudio: !<reference.AudioComponent> f12340e5-4b6b-45da-becd-7bcbc850d8b6
+      beam: !<reference.SceneObject> c0f49681-40a1-4802-b18e-928cd229a1a5
   ScriptTypes:
     "":
       {}
+- !<SceneObject/52ef601e-ffec-448b-b7ae-733500abfbf5>
+  PrefabRemaps:
+    []
+  Name: Beam
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5ae99b0b-3af2-42a6-8424-1ab9ae0ba082
+- !<RenderMeshVisual/5ae99b0b-3af2-42a6-8424-1ab9ae0ba082>
+  PrefabRemaps:
+    []
+  Name: Beam
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> c056da33-5f7f-41af-94b2-ad95592141b8
+  Mesh: !<reference> 4421b205-d87f-473a-ad1b-2f9cc493c3c1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
 - !<SceneObject/856f0015-515c-46d6-594d-29a3fdb81993>
   PrefabRemaps:
     []
@@ -131,7 +198,7 @@
   ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
   ShadowDensity: 1.000000
   Materials:
-    - !<reference> 436fab31-cc49-4193-af0e-47c61b363d39
+    - !<reference> a8b475be-7866-4b1d-9b3b-c8ba1afd5c87
   Mesh: !<reference> a59d729b-90a1-4d01-92a0-8a4292327eca
   Skin: !<reference> 00000000-0000-0000-0000-000000000000
   BlendShapesEnabled: true
@@ -150,7 +217,7 @@
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 5.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 2.000000, y: 2.000000, z: 2.000000}
     HasSegmentScaleCompensation: false
   Children:
@@ -187,6 +254,25 @@
     []
   Components:
     - !<own> f12340e5-4b6b-45da-becd-7bcbc850d8b6
+- !<SceneObject/c0f49681-40a1-4802-b18e-928cd229a1a5>
+  PrefabRemaps:
+    - 1428f9f1-743f-4076-9812-de5c56cfd0ee: 62060cb1-b6bd-41a9-4484-55f90395b79a
+    - 3f19dee0-8187-4e23-8296-d88ae5231c24: 8f06b21e-f10c-49e3-7e80-09ea9b65a3f4
+    - 52ef601e-ffec-448b-b7ae-733500abfbf5: cc14b05d-4a06-4176-748f-b71f5b945a4b
+    - 5ae99b0b-3af2-42a6-8424-1ab9ae0ba082: b54c1478-e95f-4b34-7201-2c963edc41bf
+    - c0f49681-40a1-4802-b18e-928cd229a1a5: f4f60150-7921-4b47-7f41-a5e9e3f8e298
+  Name: Beam
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 1428f9f1-743f-4076-9812-de5c56cfd0ee
+  Components:
+    []
 - !<AudioComponent/f12340e5-4b6b-45da-becd-7bcbc850d8b6>
   PrefabRemaps:
     []
@@ -198,12 +284,12 @@
   EnableMixToSnap: false
   RecordVolume: 1.000000
   EnableSpatialAudio: true
-  EnableDistanceEffect: false
+  EnableDistanceEffect: true
   CurveType: Logarithm
   MinDistance: 0.000000
-  MaxDistance: 100.000000
+  MaxDistance: 300.000000
   EnableDirectivityEffect: false
-  EnablePositionEffect: false
+  EnablePositionEffect: true
 - !<SceneObject/fd3f26b2-0877-49be-7b14-dcb853897a2a>
   PrefabRemaps:
     []

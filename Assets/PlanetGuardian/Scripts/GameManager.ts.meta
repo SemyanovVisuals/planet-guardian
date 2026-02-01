@@ -27,6 +27,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     alienPrefab: false
+    audioIntroduction: false
     orbits: false
     planet: false
   ScriptTypesHidden:
@@ -40,6 +41,7 @@
   DefaultScriptInputs:
     - planet: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       alienPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      audioIntroduction: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       orbits: !<MappingBased.AssignableType_1[]>
         []
   ScriptTypes:
@@ -48,4 +50,5 @@
   InputLines:
     - // @input AssignableType planet
     - // @input Asset.ObjectPrefab alienPrefab
+    - // @input Component.AudioComponent audioIntroduction
     - "// @input AssignableType_1[] orbits"

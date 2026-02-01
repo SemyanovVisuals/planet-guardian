@@ -7,6 +7,7 @@ export class Asteroid extends DestroyableObject {
     @input model: SceneObject;
     @input particles: SceneObject;
     @input explosion: ObjectPrefab;
+    @input audioSpawn : AudioComponent
     @input rotationSpeed: number = 0.1;
     @input orbitRadius: number = 30.0;
 
@@ -24,6 +25,7 @@ export class Asteroid extends DestroyableObject {
 
     onAwake() {
         const tr = this.getTransform();
+        this.audioSpawn.play(1);
 
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
 

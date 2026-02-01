@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    beam: false
     squishAudio: false
   ScriptTypesHidden:
     {}
@@ -37,8 +38,10 @@
     []
   DefaultScriptInputs:
     - squishAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      beam: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.AudioComponent squishAudio
+    - // @input SceneObject beam

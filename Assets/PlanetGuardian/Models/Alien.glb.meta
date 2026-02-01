@@ -1,12 +1,16 @@
 - !<AssetImportMetadata/7ce7bc52-b194-48cf-bc58-45743ea88b4f>
   ImportedAssetIds:
+    .hidden/Alien: !<reference> 03c0c0f8-2ac5-4fcf-abd9-19cd2cfe0220
     4e6c8797971782b8: !<reference> 300d85a2-ee2a-4b5a-8ba3-fa7c4a018373
     5668029ace8519ca: !<reference> 085a324d-0db1-4798-9b82-12e89e672fff
     5948404d49c7d6bb: !<reference> 0c8b4508-1187-45c4-ad11-6403815b19b2
     624f6792bd6e379e: !<reference> d71558bd-7a60-428a-825a-cfa99fd3d816
     7a0dd5cd69df73fa: !<reference> 294ce009-29f9-43b3-8ac5-f678cd38f309
+    Materials/Alien: !<reference> a8b475be-7866-4b1d-9b3b-c8ba1afd5c87
+    Materials/Alien|Alien|GraphPassInfo: !<reference> ae199589-6b68-4c1a-856d-224002a56dfb
     Meshes/Alien: !<reference> a59d729b-90a1-4d01-92a0-8a4292327eca
     Scene: !<reference> a8a54dec-6036-4617-a937-5eefc8b59deb
+    Textures/Alien: !<reference> e2484345-c9cd-456a-b810-7609c038a4ff
   ImporterName: GltfImporter
   PrimaryAsset: !<reference> a8a54dec-6036-4617-a937-5eefc8b59deb
   PackageType: LegacyPackage

@@ -26,6 +26,7 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    audioSpawn: false
     explosion: false
     model: false
     orbitRadius: false
@@ -43,6 +44,7 @@
     - model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       particles: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       explosion: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      audioSpawn: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       rotationSpeed: 0.100000
       orbitRadius: !<float> 25.000000
   ScriptTypes:
@@ -52,5 +54,6 @@
     - // @input SceneObject model
     - // @input SceneObject particles
     - // @input Asset.ObjectPrefab explosion
+    - // @input Component.AudioComponent audioSpawn
     - // @input float rotationSpeed = 0.1
     - // @input float orbitRadius = 30
