@@ -4,6 +4,7 @@ import { Asteroid } from "./Asteroid"
 import { Alien } from "./Alien"
 import { setInterval } from "./Util"
 import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
+import { Score } from "./Score"
 
 @component
 export class GameManager extends BaseScriptComponent {
@@ -15,8 +16,17 @@ export class GameManager extends BaseScriptComponent {
     @input orbits : Orbit[]
     @input camera : Camera
     @input mix : SceneObject
+    @input score : Score
+
+    private static instance: GameManager
+
+    // DO NOT CALL FROM onAwake, not guranted to be not null
+    public static getInstance(): GameManager | null {
+        return GameManager.instance;
+    }
 
     onAwake() {
+        GameManager.instance = this
         this.audioIntroduction.play(1);
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
@@ -37,7 +47,6 @@ export class GameManager extends BaseScriptComponent {
 
         setInterval(() => {
             const res = this.getRandomAsteroid();
-            console.log(res);    
             (res as any)?.enterPlanet()
         }, 1000 * interval);
     }

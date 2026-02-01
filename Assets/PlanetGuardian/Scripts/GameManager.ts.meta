@@ -34,6 +34,7 @@
     mix: false
     orbits: false
     planet: false
+    score: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -52,6 +53,7 @@
         []
       camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
       mix: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      score: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -64,3 +66,4 @@
     - "// @input AssignableType_1[] orbits"
     - // @input Component.Camera camera
     - // @input SceneObject mix
+    - // @input AssignableType_2 score

@@ -65,12 +65,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -302,12 +303,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -439,12 +441,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -665,12 +668,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -832,12 +836,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -848,12 +853,13 @@
   Enabled: true
   ScriptAsset: !<reference> 402353eb-808f-462e-b1f7-28151faac39a
   ScriptInputsDefault:
-    {}
+    gameManager: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       rocketPrefab: !<reference.ObjectPrefab> e2538ae0-28d8-41c6-b17c-7545739c5905
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -896,7 +902,7 @@
   Enabled: true
   ScriptAsset: !<reference> c5f55135-3aff-4bbe-8b7b-56480dfb3c48
   ScriptInputsDefault:
-    {}
+    score: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -912,6 +918,7 @@
         - !<reference> 02787936-f6da-44e4-8718-943f2f2f23ed
       camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
       mix: !<reference.SceneObject> c5ba56f3-3f1e-4994-b0e9-d3dc07efae53
+      score: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}

@@ -1,8 +1,8 @@
-- !<AssetImportMetadata/77e81f2c-b0a9-4fa9-98b8-61e9c4878021>
+- !<AssetImportMetadata/e5c80952-90cf-48c7-bfe1-7e373026f102>
   ImportedAssetIds:
-    FileAudioTrack: !<reference> df2da2ae-beab-44a0-9a58-84821003230e
+    FileAudioTrack: !<reference> 4c220f33-ca00-4a6c-81af-65cc14600808
   ImporterName: FileAudioTrackImporter
-  PrimaryAsset: !<reference> df2da2ae-beab-44a0-9a58-84821003230e
+  PrimaryAsset: !<reference> 4c220f33-ca00-4a6c-81af-65cc14600808
   PackageType: NotAPackage
   LegacyPackagePolicy: ~
   ExtraData:

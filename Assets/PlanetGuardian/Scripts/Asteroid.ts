@@ -1,6 +1,7 @@
 import { Orbit } from "./Orbit";
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 import { DestroyableObject } from "../../Scripts/DestroyableObject";
+import { GameManager } from "./GameManager";
 
 @component
 export class Asteroid extends DestroyableObject {
@@ -23,6 +24,7 @@ export class Asteroid extends DestroyableObject {
     private isFalling: boolean = false;
     private isReturning: boolean = false;
     private lastOrbitPos: vec3 = null;
+    private damage: number;
 
     onAwake() {
         const tr = this.getTransform();
@@ -34,7 +36,8 @@ export class Asteroid extends DestroyableObject {
         const randomOffset = vec3.randomDirection();
         this.finalPos = pos.add(randomOffset);
 
-        this.finalScale = vec3.one().uniformScale(Math.random() * 0.5 + 0.5);
+        this.damage = Math.random();
+        this.finalScale = vec3.one().uniformScale(this.damage * 0.5 + 0.5);
         this.spawnTime = getTime();
 
         this.rotation = vec3.randomDirection().uniformScale(Math.random() * 2 + 1);
@@ -132,6 +135,7 @@ export class Asteroid extends DestroyableObject {
             if (newPos.distance(vec3.zero()) < 8) {
                 //tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
                 this.onDestroyAsteroid(); // Finalize asteroid destruction
+                GameManager.getInstance().score.impact(this.damage);
                 // TODO: effect
             }
         } else if (this.isReturning) {

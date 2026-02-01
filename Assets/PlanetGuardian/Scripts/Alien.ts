@@ -1,14 +1,18 @@
 import { DestroyableObject } from "../../Scripts/DestroyableObject"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
+import { GameManager } from "./GameManager"
 
 @component
 export class Alien extends DestroyableObject {
     @input squishAudio : AudioComponent
     @input beam : SceneObject
     @input model : SceneObject
+    
+    private timeStart : number
 
     onAwake() {
+        this.timeStart = getTime()
         const orbit = 45.0;
         const dir = vec3.randomDirection();
         const pos = dir.uniformScale(orbit);
@@ -51,5 +55,9 @@ export class Alien extends DestroyableObject {
 
     private update() {
         this.model.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
+    
+        const timeSinceAlive = getTime() - this.timeStart;
+
+        GameManager.getInstance().score.damage(timeSinceAlive / 1000);
     }
 }
