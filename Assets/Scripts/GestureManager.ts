@@ -3,6 +3,7 @@ import {SIK} from "SpectaclesInteractionKit.lspkg/SIK"
 import {GrabbableObject} from "./GrabbableObject"
 import {DestroyableObject} from "./DestroyableObject"
 import { TriggerObject } from "./TriggerObject"
+import { Asteroid } from "../PlanetGuardian/Scripts/Asteroid"
 
 /**
  * Manages pinch-to-grab interactions for objects with GrabbableObject components.
@@ -304,6 +305,7 @@ export class GestureManager extends BaseScriptComponent {
     const grabbable = this.findGrabbableObjectComponent(overlappedObject)
     const destroyable = this.findDestroyableObjectComponent(overlappedObject)
     const trigger = this.findTriggerObjectComponent(overlappedObject)
+    const asteroid = this.findAsteroidObjectComponent(overlappedObject)
 
     if (grabbable) {
       // Add to the set of overlapping objects for this hand
@@ -338,6 +340,10 @@ export class GestureManager extends BaseScriptComponent {
 
     if (trigger) {
       trigger.onTrigger();
+    }
+
+    if (asteroid) {
+      asteroid.tryRedirect()
     }
   }
 
@@ -424,6 +430,22 @@ export class GestureManager extends BaseScriptComponent {
       // Check if this is a TriggerObject by checking if it has the required methods
       if (comp && typeof (comp as any).onTrigger === "function") {
         return comp as TriggerObject
+      }
+    }
+    return null
+  }
+
+  /**
+   * Find Asteroid component on a scene object
+   */
+  private findAsteroidObjectComponent(sceneObject: SceneObject): Asteroid | null {
+    print("CHECKING IF TRIGGER")
+    const allComponents = sceneObject.getComponents("Component.ScriptComponent")
+    for (let i = 0; i < allComponents.length; i++) {
+      const comp = allComponents[i]
+      // Check if this is a Asteroid by checking if it has the required methods
+      if (comp && typeof (comp as any).enterPlanet === "function") {
+        return comp as Asteroid
       }
     }
     return null

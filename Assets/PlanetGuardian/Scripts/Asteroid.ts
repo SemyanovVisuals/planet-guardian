@@ -21,6 +21,7 @@ export class Asteroid extends DestroyableObject {
     private isDestroying: boolean = false;
 
     private isFalling: boolean = false;
+    private isReturning: boolean = false;
     private lastOrbitPos: vec3 = null;
 
     onAwake() {
@@ -37,6 +38,8 @@ export class Asteroid extends DestroyableObject {
         this.spawnTime = getTime();
 
         this.rotation = vec3.randomDirection().uniformScale(Math.random() * 2 + 1);
+
+        this.lastOrbitPos = tr.getLocalPosition()
 
         // flame orientation
         tr.setLocalRotation(quat.rotationFromTo(vec3.zero(), this.finalPos));
@@ -83,6 +86,16 @@ export class Asteroid extends DestroyableObject {
         // TODO: make particles follow asteroid's direction
     }
 
+    public tryRedirect() {
+        if (this.isFalling) {
+            this.isFalling = false
+            this.particles.enabled = true;
+            print("REDIRECT")
+
+            this.isReturning = true
+        }
+    }
+
     private update() {
         if (this.isDestroying) return;
 
@@ -101,9 +114,7 @@ export class Asteroid extends DestroyableObject {
         tr.setLocalScale(vec3.lerp(vec3.zero(), this.finalScale, t));
 
         // Orbiting motion (if not falling)
-        if (!this.isFalling) {
-            tr.setLocalPosition(this.finalPos.add(enterOrbit));
-        } else {
+        if (this.isFalling) {
             // FALLING: Move vertically toward the center of Earth
             const currentPos = tr.getLocalPosition();
 
@@ -123,6 +134,28 @@ export class Asteroid extends DestroyableObject {
                 this.onDestroyAsteroid(); // Finalize asteroid destruction
                 // TODO: effect
             }
+        } else if (this.isReturning) {
+            const currentPos = tr.getLocalPosition();
+            const targetPos = this.lastOrbitPos;
+
+            const dir = targetPos.sub(currentPos);
+            const dist = currentPos.distance(targetPos);
+
+            const returnSpeed = 4;
+            const step = returnSpeed * getDeltaTime();
+
+            if (dist > 0.05) {
+                tr.setLocalPosition(
+                    currentPos.add(dir.normalize().uniformScale(step))
+                );
+            } else {
+                // Snap exactly onto orbit and stop correcting
+                tr.setLocalPosition(targetPos);
+                this.isReturning = false
+                this.lastOrbitPos = null;
+            }
+        } else {
+            tr.setLocalPosition(this.finalPos.add(enterOrbit));
         }
     }
 
