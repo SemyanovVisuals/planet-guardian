@@ -12,7 +12,7 @@ export class TriggerObject extends BaseScriptComponent {
     onAwake() {
         this.colliderComponent = this.getSceneObject().getComponent("Physics.ColliderComponent")
    
-        setTimeout(this.onTrigger.bind(this), 1000);
+        //setTimeout(this.onTrigger.bind(this), 1000);
     }
 
     onTrigger() {
