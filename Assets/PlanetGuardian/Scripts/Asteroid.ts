@@ -21,7 +21,7 @@ export class Asteroid extends DestroyableObject {
     private isDestroying: boolean = false;
 
     private isFalling: boolean = false;
-    private lastOrbitPos: mat4 = null;
+    private lastOrbitPos: vec3 = null;
 
     onAwake() {
         const tr = this.getTransform();
@@ -76,46 +76,11 @@ export class Asteroid extends DestroyableObject {
         const tr = this.getTransform();
         const startPos = tr.getLocalPosition();
 
+        this.lastOrbitPos = startPos
+
         this.particles.enabled = true;
-
-        // TODO: remove parent, move the object!!
-        //this.getSceneObject.
-
-        //animate({
-        //    easing: "ease-out-sine",
-        //    duration: 5,
-        //    update: (t: number) => {
-        //        tr.setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
-        //    },
-        //    ended: () => this.onDestroyAsteroid(),
-        //});
-    }
-
-    private update2() {
-        if (this.isDestroying) return;
-
-        const tr = this.getTransform();
-
-        const timePast = Math.min((getTime() - this.spawnTime) / 10.0, 1.0);
-        const t = Math.sin(timePast * (Math.PI / 2));
-
-        const rot = quat.fromEulerVec(this.rotation.uniformScale(getTime() * this.rotationSpeed));
-        this.model.getTransform().setLocalRotation(rot);
-
-        const enterOrbit = this.dir.uniformScale((1 - Math.sqrt(t)) * 40);
-
-        tr.setLocalScale(vec3.lerp(vec3.zero(), this.finalScale, t));
-        tr.setLocalPosition(this.finalPos.add(enterOrbit));
-
-        // FALLING ONTO EARTH
-        if(this.isFalling) {
-            const fallSpeed = 3; // tweak this
-            const currentPos = tr.getLocalPosition();
-            const targetPos = vec3.zero();
-
-            const dt = getDeltaTime(); // or however you get delta
-            tr.setLocalPosition(vec3.lerp(currentPos, targetPos, fallSpeed * dt));
-        }  
+        
+        // TODO: make particles follow asteroid's direction
     }
 
     private update() {

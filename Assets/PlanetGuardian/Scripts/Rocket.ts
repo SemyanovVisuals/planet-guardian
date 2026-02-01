@@ -40,15 +40,7 @@ export class Rocket extends BaseScriptComponent {
             this.onDestroyRocket()
         }
     }
-
-    // isAsteroid(obj : SceneObject): Asteroid {
-    //     for (const script of obj.getComponents("Component.ScriptComponent")) {
-    //         if (script.getTypeName().toString() == Asteroid.getTypeName().toString())
-    //             return script as any as Asteroid;
-    //     }
-    //     return null;
-    // }
-
+    
     /**
    * Find Asteroid component on a scene object
    */
