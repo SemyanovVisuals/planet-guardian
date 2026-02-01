@@ -78,14 +78,14 @@ export class Asteroid extends DestroyableObject {
         // TODO: remove parent, move the object!!
         //this.getSceneObject.
 
-        // animate({
-        //     easing: "ease-out-sine",
-        //     duration: 5,
-        //     update: (t: number) => {
-        //         tr.setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
-        //     },
-        //     ended: () => this.onDestroyAsteroid(),
-        // });
+        animate({
+            easing: "ease-out-sine",
+            duration: 5,
+            update: (t: number) => {
+                tr.setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
+            },
+            ended: () => this.onDestroyAsteroid(),
+        });
     }
 
     private update() {
