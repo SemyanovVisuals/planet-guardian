@@ -3,7 +3,7 @@ import animate from "SpectaclesInteractionKit.lspkg/Utils/animate";
 import { DestroyableObject } from "../../Scripts/DestroyableObject";
 
 @component
-export class Asteroid extends DestroyableObject {
+export class Asteroid extends BaseScriptComponent {
     @input model: SceneObject;
     @input particles: SceneObject;
     @input explosion: ObjectPrefab;
@@ -82,6 +82,8 @@ export class Asteroid extends DestroyableObject {
         this.lastOrbitPos = startPos
 
         this.particles.enabled = true;
+
+        this.audioSpawn.play(1);
         
         // TODO: make particles follow asteroid's direction
     }

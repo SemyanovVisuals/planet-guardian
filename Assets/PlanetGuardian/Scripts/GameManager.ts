@@ -17,7 +17,7 @@ export class GameManager extends BaseScriptComponent {
     @input mix : SceneObject
 
     onAwake() {
-        this.audioIntroduction.play(1);
+        // this.audioIntroduction.play(1);
         this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
         // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
