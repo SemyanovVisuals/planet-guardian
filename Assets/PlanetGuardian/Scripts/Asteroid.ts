@@ -71,26 +71,27 @@ export class Asteroid extends DestroyableObject {
     public enterPlanet() {
         if (this.isDestroying) return;
 
+        this.isFalling = true
+
         const tr = this.getTransform();
         const startPos = tr.getLocalPosition();
-        const lastOrbitPos = tr.getWorldTransform();
 
         this.particles.enabled = true;
 
         // TODO: remove parent, move the object!!
         //this.getSceneObject.
 
-        animate({
-            easing: "ease-out-sine",
-            duration: 5,
-            update: (t: number) => {
-                tr.setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
-            },
-            ended: () => this.onDestroyAsteroid(),
-        });
+        //animate({
+        //    easing: "ease-out-sine",
+        //    duration: 5,
+        //    update: (t: number) => {
+        //        tr.setLocalPosition(vec3.lerp(startPos, vec3.zero(), t));
+        //    },
+        //    ended: () => this.onDestroyAsteroid(),
+        //});
     }
 
-    private update() {
+    private update2() {
         if (this.isDestroying) return;
 
         const tr = this.getTransform();
@@ -105,5 +106,58 @@ export class Asteroid extends DestroyableObject {
 
         tr.setLocalScale(vec3.lerp(vec3.zero(), this.finalScale, t));
         tr.setLocalPosition(this.finalPos.add(enterOrbit));
+
+        // FALLING ONTO EARTH
+        if(this.isFalling) {
+            const fallSpeed = 3; // tweak this
+            const currentPos = tr.getLocalPosition();
+            const targetPos = vec3.zero();
+
+            const dt = getDeltaTime(); // or however you get delta
+            tr.setLocalPosition(vec3.lerp(currentPos, targetPos, fallSpeed * dt));
+        }  
     }
+
+    private update() {
+        if (this.isDestroying) return;
+
+        const tr = this.getTransform();
+
+        const timePast = Math.min((getTime() - this.spawnTime) / 10.0, 1.0);
+        const t = Math.sin(timePast * (Math.PI / 2));
+
+        // Calculate rotation for the model, continue spinning even when falling
+        const rot = quat.fromEulerVec(this.rotation.uniformScale(getTime() * this.rotationSpeed));
+        this.model.getTransform().setLocalRotation(rot);
+
+        // Orbiting calculation (applies when not falling)
+        const enterOrbit = this.dir.uniformScale((1 - Math.sqrt(t)) * 40);
+
+        tr.setLocalScale(vec3.lerp(vec3.zero(), this.finalScale, t));
+
+        // Orbiting motion (if not falling)
+        if (!this.isFalling) {
+            tr.setLocalPosition(this.finalPos.add(enterOrbit));
+        } else {
+            // FALLING: Move vertically toward the center of Earth
+            const currentPos = tr.getLocalPosition();
+
+            // Keep the same horizontal direction (X and Z) and move vertically towards (0,0,0)
+            const targetPos = vec3.zero(); // center of Earth
+            const direction = new vec3(-currentPos.x, -currentPos.y, -currentPos.z).normalize(); // X and Z direction is kept
+            const fallSpeed = 3; // adjust fall speed as needed
+
+            // Move along Y-axis towards the center
+            const newPos = currentPos.add(direction.uniformScale(fallSpeed * getDeltaTime()));
+
+            tr.setLocalPosition(newPos);
+
+            // If we are very close to the center (Earth), finalize fall
+            if (newPos.distance(vec3.zero()) < 0.5) {
+                tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
+                this.onDestroyAsteroid(); // Finalize asteroid destruction
+            }
+        }
+    }
+
 }
