@@ -8570,6 +8570,7 @@
       minPinchStrength: 0.300000
       debugLeftHandPrefab: !<reference.ObjectPrefab> 3e03991a-9f22-4e92-ace9-95f5340ac113
       debugRightHandPrefab: !<reference.ObjectPrefab> 1fb93f89-0ae6-4fe5-961a-f7d6422a46a0
+      gameManager: !<MappingBased.AssignableType> 5b44e198-551b-44a9-8503-9e86c398c298
   ScriptTypes:
     "":
       {}
