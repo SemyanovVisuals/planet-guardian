@@ -26,7 +26,7 @@ export class Asteroid extends DestroyableObject {
 
     onAwake() {
         const tr = this.getTransform();
-        this.audioSpawn.play(1);
+        // this.audioSpawn.play(1);
 
         this.dir = vec3.randomDirection().mult(new vec3(1, 0.1, 1)).normalize();
 

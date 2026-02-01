@@ -2020,6 +2020,23 @@
     []
   Components:
     - !<own> 766d1584-00ee-4680-b22f-c594d7208c34
+- !<AudioComponent/3ca8e149-5e63-4f6c-ac12-972d2e99c7a5>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 14f9aeb4-eea6-470d-a817-c87883b2514a
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/3d256658-f8db-4ecb-87b2-3927584c8a1c>
   PrefabRemaps:
     []
@@ -3627,6 +3644,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/5b5ec2f6-9c17-4e5e-9dd7-5eeb590eee00>
+  PrefabRemaps:
+    []
+  Name: FX_Asteroid_StartDescent
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 3ca8e149-5e63-4f6c-ac12-972d2e99c7a5
 - !<SceneObject/5b63ff10-c410-46c8-810e-818fbf62f711>
   PrefabRemaps:
     []
@@ -7092,6 +7124,7 @@
     - !<own> 0f6e1586-2f92-44b9-a416-b732328f3d28
     - !<own> 4bcd74de-38a6-4159-9aea-10e85f500c7b
     - !<own> 2c3dcf23-ca97-41a0-90e4-b741e4321b3c
+    - !<own> 5b5ec2f6-9c17-4e5e-9dd7-5eeb590eee00
   Components:
     - !<own> 795b449a-5150-4fb4-9277-935f08b75ae5
     - !<own> dab57cc0-519c-444c-957f-7952620b5078
