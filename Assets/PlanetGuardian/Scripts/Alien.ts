@@ -8,18 +8,24 @@ export class Alien extends DestroyableObject {
     @input beam : SceneObject
 
     onAwake() {
-        const dir = vec3.randomDirection().normalize();
-        const pos = dir.uniformScale(45.0);
+        const orbit = 45.0;
+        const dir = vec3.randomDirection();
+        const pos = dir.uniformScale(orbit);
+        const rot = quat.rotationFromTo(vec3.up(), dir);
 
         this.getTransform().setLocalPosition(pos);
-        this.getTransform().setLocalRotation(quat.lookAt(dir, vec3.up()));
+        this.getTransform().setLocalRotation(rot);
         
         this.createEvent("UpdateEvent").bind(this.update.bind(this));
+                
+        this.beam.getTransform().setLocalPosition(new vec3(0, 4 - orbit * 0.5, 0));
+        this.beam.getTransform().setLocalScale(new vec3(1, orbit * 0.5, 1));
 
         animate({
-            easing: "ease-in-sine",
+            easing: "ease-out-sine",
             duration: 2,
             update: (t: number) => {
+                this.getTransform()?.setLocalPosition(vec3.lerp(pos.uniformScale(1.2), pos, Math.sqrt(t)))
                 this.getTransform()?.setLocalScale(vec3.lerp(vec3.zero(), vec3.one(), t))
             },
         })

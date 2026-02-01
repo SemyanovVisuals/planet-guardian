@@ -34,6 +34,9 @@
     - Port_Input0_N001:
         typeIdx: 5
         value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+    - Port_Input0_N003:
+        typeIdx: 5
+        value: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
     - Port_Input0_N006:
         typeIdx: 1
         value: 1.000000
@@ -153,6 +156,9 @@
     []
   BlendMode: PremultipliedAlphaAuto
   Properties:
+    Port_Input1_N003:
+      typeIdx: 1
+      value: 10.000000
     Port_Multiplier_N010:
       typeIdx: 1
       value: 1.000000
@@ -164,7 +170,7 @@
       value: {x: 0.176471, y: 1.000000, z: 0.133333, w: 1.000000}
     Tweak_N2:
       typeIdx: 1
-      value: 100.000000
+      value: 338.660004
     opacity:
       typeIdx: 1
       value: 0.400000
