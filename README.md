@@ -14,5 +14,5 @@ Planet Guardian is an interactive augmented reality (AR) experience built for Sn
 ### Tech Stack
 Snap OS 2.0 · Lens Studio 5.15 · AR · TypeScript · Gesture Recognition · Real-Time Physics · Custom Shaders · Custom 3D Models & Assets
 
-### Trailer
+### Trailer 🔗
 [![Watch the video](https://img.youtube.com/vi/0cRv9Viuyt4/0.jpg)](https://www.youtube.com/watch?v=0cRv9Viuyt4)
