@@ -1,5 +1,5 @@
 # Planet Guardian 🌑
-*for Global Game Jam 2026*
+*for Global Game Jam Vienna 2026*
 
 Planet Guardian is an interactive augmented reality (AR) experience built for Snap Spectacles, where players defend a miniature planet from incoming asteroids and a concealed alien invasion. Using hand tracking, gesture controls, and spatial interaction, users deflect threats, launch rockets, and reveal enemies with a special detection mask.
 
