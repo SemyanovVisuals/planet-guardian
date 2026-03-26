@@ -489,8 +489,6 @@ export class GestureManager extends BaseScriptComponent {
     // Update pinch state
     if (isLeft) {
       this.leftPinchActive = true
-
-      this.attemptToggleMask()
     } else {
       this.rightPinchActive = true
 
@@ -576,10 +574,6 @@ export class GestureManager extends BaseScriptComponent {
     }
   }
 
-  private attemptToggleMask() {
-    print("GestureManager: TOGGLE MASK")
-    this.gameManager.toggleScanner()
-  }
 
   private attemptDestroy(handType: GestureModule.HandType, gestureType: "pinch") {
 

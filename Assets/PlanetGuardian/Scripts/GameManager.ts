@@ -14,13 +14,10 @@ export class GameManager extends BaseScriptComponent {
     @input audioMusicScan : AudioComponent
     @input orbits : Orbit[]
     @input camera : Camera
-    @input mix : SceneObject
 
     onAwake() {
-
-
         this.audioIntroduction.play(1);
-        this.createEvent("UpdateEvent").bind(this.update.bind(this))
+        // this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
         // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
         // For every orbit, spawn asteroids with an inteval
@@ -60,21 +57,7 @@ export class GameManager extends BaseScriptComponent {
         return asteroids[Math.floor(Math.random() * asteroids.length)];
     }
 
-    private update() {
-        // Main Game Loop
-    }
-
-    public toggleScanner() {
-        this.mix.enabled = !this.mix.enabled;
-        var temp = this.audioMusicNormal.volume
-        this.audioMusicNormal.volume = this.audioMusicScan.volume
-        this.audioMusicScan.volume = temp;
-        this.camera.renderLayer = this.mix.enabled ?
-         LayerSet.fromNumber(1).union(LayerSet.fromNumber(2)) :
-            LayerSet.fromNumber(0).union(LayerSet.fromNumber(2));
-    }
     private randint(min: number, max: number): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
 }

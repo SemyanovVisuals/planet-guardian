@@ -31,7 +31,6 @@
     audioMusicNormal: false
     audioMusicScan: false
     camera: false
-    mix: false
     orbits: false
     planet: false
   ScriptTypesHidden:
@@ -51,7 +50,6 @@
       orbits: !<MappingBased.AssignableType_1[]>
         []
       camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
-      mix: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
@@ -63,4 +61,3 @@
     - // @input Component.AudioComponent audioMusicScan
     - "// @input AssignableType_1[] orbits"
     - // @input Component.Camera camera
-    - // @input SceneObject mix
