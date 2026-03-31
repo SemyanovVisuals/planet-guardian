@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/03312ec5-7d7c-4414-af52-13498bca3c70>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 4eff5f31-f11c-4ea0-a5fc-f42628fbec64
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 4eff5f31-f11c-4ea0-a5fc-f42628fbec64
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a76404a5-93ee-48b8-8e7d-e88c77fe1d9c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a76404a5-93ee-48b8-8e7d-e88c77fe1d9c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9ed8ae87-cafd-4983-95cb-c456d453106e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    distanceToHand: false
+    handFollowObject: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - handFollowObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      distanceToHand: !<float> 5.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject handFollowObject
+    - // @input float distanceToHand = 5
