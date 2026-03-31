@@ -11,7 +11,7 @@ export function setInterval(callback: () => void, delay: number): Interval {
 
 export function setIntervalRandom(callback: () => void, min: number, max: number): Interval {
   let cancelled = false
-  let paused = false
+  let paused = true
 
   const intervalFunc = () => {
     if (!cancelled) {
