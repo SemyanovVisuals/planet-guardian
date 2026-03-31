@@ -6,14 +6,10 @@ import { Score } from "./Score"
 @component
 export class Alien extends DestroyableObject {
     @input squishAudio : AudioComponent
-    @input beam : SceneObject
     @input model : SceneObject
-
-    startTime : number
+    @input rocket : ObjectPrefab
 
     onAwake() {
-        this.startTime = getTime()
-
         const orbit = 45.0;
         const dir = vec3.randomDirection();
         const pos = dir.uniformScale(orbit);
@@ -23,10 +19,7 @@ export class Alien extends DestroyableObject {
         this.getTransform().setLocalRotation(rot);
         
         this.createEvent("UpdateEvent").bind(this.update.bind(this));
-                
-        this.beam.getTransform().setLocalPosition(new vec3(0, 4 - orbit * 0.5, 0));
-        this.beam.getTransform().setLocalScale(new vec3(1, orbit * 0.5, 1));
-
+        
         animate({
             easing: "ease-out-sine",
             duration: 2,
@@ -57,10 +50,5 @@ export class Alien extends DestroyableObject {
     private update() {
         this.model.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
         
-        const currentTime = getTime()
-        if (currentTime - this.startTime > 100) {
-            Score.instance.damage(1); // TODO: This needs to be added to the pause
-            this.startTime = currentTime;
-        }
     }
 }

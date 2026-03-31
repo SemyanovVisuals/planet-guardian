@@ -13,7 +13,7 @@ export class Orbit extends BaseScriptComponent {
 
     private static readonly MAX_ASTEROIDS = 3;  // same for every Orbit instance
     private asteroids : Asteroid[]
-    private paused : boolean
+    private paused : boolean = true
 
     onAwake() {
         this.asteroids = [];

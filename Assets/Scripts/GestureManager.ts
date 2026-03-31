@@ -386,8 +386,6 @@ export class GestureManager extends BaseScriptComponent {
         const count = (this.rightHandOverlappingDestroyableObjects.get(destroyable) ?? 1) - 1
         if (count <= 0) this.rightHandOverlappingDestroyableObjects.delete(destroyable)
         else this.rightHandOverlappingDestroyableObjects.set(destroyable, count)
-
-        print("COUNT " + this.rightHandOverlappingDestroyableObjects.get(destroyable))
       }
     }
   }
@@ -489,6 +487,12 @@ export class GestureManager extends BaseScriptComponent {
     // Update pinch state
     if (isLeft) {
       this.leftPinchActive = true
+      
+      // Try to grab with pinch gesture
+      this.attemptGrab(handType, "pinch")
+
+      // Try to destroy with pinch gesture
+      this.attemptDestroy(handType, "pinch")
     } else {
       this.rightPinchActive = true
 
