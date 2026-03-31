@@ -1142,7 +1142,7 @@
       _defaultToOn: false
       addCallbacks: true
       triggerUpCallbacks:
-        - scriptComponent: !<reference.ScriptComponent> 660a3a0b-42a2-4721-8b30-24f31de16509
+        - scriptComponent: !<reference.ScriptComponent> 9ce44b22-80d2-4e6a-bcb8-da162093400a
           functionName: resetPlacement
       triggerDownCallbacks:
         []
@@ -1365,7 +1365,7 @@
   Children:
     - !<own> aeb5a67f-2e52-4876-b9f4-3b8392a99eda
   Components:
-    - !<own> 660a3a0b-42a2-4721-8b30-24f31de16509
+    - !<own> 9ce44b22-80d2-4e6a-bcb8-da162093400a
 - !<RenderMeshVisual/41074777-d475-4111-a8dd-db42469fcaa3>
   PrefabRemaps:
     []
@@ -1631,6 +1631,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> af8ef1ad-182b-4d2b-ba08-04db909b4ab9
     - !<own> 7e12c976-ed6e-4fff-b705-ad4ddb560012
     - !<own> 252d39d0-6c6a-404c-8cff-421adffc765d
   Components:
@@ -2156,27 +2157,6 @@
   BlendNormals: false
   BlendShapes:
     {}
-- !<ScriptComponent/660a3a0b-42a2-4721-8b30-24f31de16509>
-  PrefabRemaps:
-    []
-  Name: Example
-  Enabled: true
-  ScriptAsset: !<reference> 5ea0171b-d801-473a-b686-acf039623294
-  ScriptInputsDefault:
-    enableLogging: true
-    enableLoggingLifecycle: true
-  ScriptTypesDefault:
-    {}
-  ScriptInputs:
-    "":
-      objectVisuals: !<reference.SceneObject> aeb5a67f-2e52-4876-b9f4-3b8392a99eda
-      placementSettingMode: 1
-      autoStart: false
-      enableLogging: false
-      enableLoggingLifecycle: false
-  ScriptTypes:
-    "":
-      {}
 - !<Text/66e58dc5-76b0-4a5d-b898-a3dad916e3f3>
   PrefabRemaps:
     []
@@ -3072,6 +3052,29 @@
     - !<own> e84b914f-6c01-4a32-9da9-53c9861ebb8a
   Components:
     []
+- !<ScriptComponent/9ce44b22-80d2-4e6a-bcb8-da162093400a>
+  PrefabRemaps:
+    []
+  Name: Placement
+  Enabled: true
+  ScriptAsset: !<reference> e26a44fa-329b-4796-8d9a-637f327362b7
+  ScriptInputsDefault:
+    enableLogging: true
+    enableLoggingLifecycle: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      objectVisuals: !<reference.SceneObject> aeb5a67f-2e52-4876-b9f4-3b8392a99eda
+      gameManager: !<MappingBased.AssignableType> 5b44e198-551b-44a9-8503-9e86c398c298
+      headLevel: !<reference.SceneObject> 00000000-0000-0065-0000-000000000064
+      placementSettingMode: 1
+      autoStart: false
+      enableLogging: false
+      enableLoggingLifecycle: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/9dad9661-87c1-4b04-a16d-4d6f0208fecb>
   PrefabRemaps:
     []
@@ -3342,13 +3345,12 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 50.000000, z: 0.000000}
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     - !<own> b9c238d6-b867-43fe-a404-8a94189d67b6
-    - !<own> af8ef1ad-182b-4d2b-ba08-04db909b4ab9
   Components:
     []
 - !<SceneObject/af8ef1ad-182b-4d2b-ba08-04db909b4ab9>
@@ -3358,7 +3360,7 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 18.196430, z: 0.000000}
+    Position: {x: 0.000000, y: 6.196430, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     HasSegmentScaleCompensation: false
@@ -3690,7 +3692,7 @@
       triggerUpCallbacks:
         - scriptComponent: !<reference.ScriptComponent> 7892850c-4d55-41e6-b1b8-2ef95ec204dc
           functionName: hide
-        - scriptComponent: !<reference.ScriptComponent> 660a3a0b-42a2-4721-8b30-24f31de16509
+        - scriptComponent: !<reference.ScriptComponent> 9ce44b22-80d2-4e6a-bcb8-da162093400a
           functionName: resetPlacement
       triggerDownCallbacks:
         []

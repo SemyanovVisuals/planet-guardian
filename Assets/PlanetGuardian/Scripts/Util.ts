@@ -1,39 +1,37 @@
 import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
 
-export function setInterval(callback: () => void, delay: number): any {
+export interface Interval {
+  cancel: () => void;
+  setPaused: (state: boolean) => void;
+}
+
+export function setInterval(callback: () => void, delay: number): Interval {
+  return setIntervalRandom(callback, delay, delay);
+}
+
+export function setIntervalRandom(callback: () => void, min: number, max: number): Interval {
   let cancelled = false
+  let paused = false
 
   const intervalFunc = () => {
     if (!cancelled) {
-      callback()
-      setTimeout(intervalFunc, delay)
+      if (!paused) callback()
+      setTimeout(intervalFunc, randint(min, max))
     }
   }
 
-  setTimeout(intervalFunc, delay)
+  setTimeout(intervalFunc, randint(min, max))
 
   return {
     cancel: () => {
       cancelled = true
+    },
+    setPaused: (state: boolean) => {
+      paused = state;
     }
   }
 }
 
-export function setIntervalRandom(callback: () => void, min: number, max: number): any {
-  let cancelled = false
-
-  const intervalFunc = () => {
-    if (!cancelled) {
-      callback()
-      setTimeout(intervalFunc, min + (max - min) * Math.random())
-    }
-  }
-
-  setTimeout(intervalFunc, min + (max - min) * Math.random())
-
-  return {
-    cancel: () => {
-      cancelled = true
-    }
-  }
+export function randint(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

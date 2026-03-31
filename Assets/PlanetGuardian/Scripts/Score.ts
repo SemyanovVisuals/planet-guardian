@@ -1,4 +1,4 @@
-import { setInterval } from "./Util"
+import { Interval, setInterval } from "./Util"
 
 @component
 export class Score extends BaseScriptComponent {
@@ -9,19 +9,27 @@ export class Score extends BaseScriptComponent {
     private population : number = 1
     private rockets : number = 0
 
-    public static instance : Score
+    public static instance : Score;
+    
+    private populationInterval : Interval;
+    private rocketInterval : Interval;
 
     onAwake() {
         Score.instance = this;
         this.createEvent("UpdateEvent").bind(this.facePlayer.bind(this));
     
-        setInterval(() => {
+        this.populationInterval = setInterval(() => {
             this.population += 1 / Math.sqrt(this.population);
         }, 10);
         
-        setInterval(() => {
+        this.rocketInterval = setInterval(() => {
             this.rockets += 1;
         }, 7_000);
+    }
+
+    public setPaused(state: boolean) {
+        this.rocketInterval.setPaused(state);
+        this.populationInterval.setPaused(state);
     }
 
     private fmt(population: number): string {
