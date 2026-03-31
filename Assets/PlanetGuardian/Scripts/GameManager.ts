@@ -12,7 +12,6 @@ export class GameManager extends BaseScriptComponent {
     @input alienPrefab : ObjectPrefab
     @input audioIntroduction : AudioComponent
     @input audioMusicNormal : AudioComponent
-    @input audioMusicScan : AudioComponent
     @input orbits : Orbit[]
     @input camera : Camera
 
@@ -43,6 +42,8 @@ export class GameManager extends BaseScriptComponent {
         }, 10_000, 15_000);
     }
 
+    private audioPosition : number = 0;
+
     public setPaused(state: boolean) {
         for (const orbit of this.orbits)
             orbit.setPaused(state);
@@ -52,6 +53,14 @@ export class GameManager extends BaseScriptComponent {
         this.enterOrbitInterval.setPaused(state);
 
         Score.instance.setPaused(state);
+        
+        if (state) {
+            this.audioMusicNormal.pause();
+            this.audioPosition = this.audioMusicNormal.position;
+        } else {
+            this.audioMusicNormal.play(-1);
+            this.audioMusicNormal.position = this.audioPosition;
+        }
 
         print("Game paused=" + state);
     }
