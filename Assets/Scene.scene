@@ -2038,6 +2038,7 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 98d0379c-5b2a-4784-ad6c-e773fbc20dd2
+    - !<own> f833b145-a28d-4532-93bc-b68cc1d143b1
   Components:
     - !<own> 7892850c-4d55-41e6-b1b8-2ef95ec204dc
 - !<ScriptComponent/62514429-df5a-464d-93b8-84378765525c>
@@ -2617,7 +2618,7 @@
     {}
   ScriptInputs:
     "":
-      {}
+      introAudio: !<reference.AudioComponent> f7727d16-dba1-4f1e-aca0-712a42be9326
   ScriptTypes:
     "":
       {}
@@ -4502,6 +4503,23 @@
   BlendNormals: false
   BlendShapes:
     {}
+- !<AudioComponent/f7727d16-dba1-4f1e-aca0-712a42be9326>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 124e6c6b-ed3e-4a79-a586-98ed7fb3866f
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/f82673b0-923d-4c3d-bfc1-73237057b41c>
   PrefabRemaps:
     []
@@ -4517,6 +4535,21 @@
     - !<own> b142c002-e0a7-46af-8484-47169c49c452
   Components:
     []
+- !<SceneObject/f833b145-a28d-4532-93bc-b68cc1d143b1>
+  PrefabRemaps:
+    []
+  Name: Vocal_Instruction_Mockup
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f7727d16-dba1-4f1e-aca0-712a42be9326
 - !<LightSource/f87eb471-8765-4f36-99dd-efd723a07eb4>
   PrefabRemaps:
     []
