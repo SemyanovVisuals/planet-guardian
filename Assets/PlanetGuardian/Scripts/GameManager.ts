@@ -2,8 +2,9 @@ import { Planet } from "./Planet"
 import { Orbit } from "./Orbit"
 import { Asteroid } from "./Asteroid"
 import { Alien } from "./Alien"
-import { setInterval, setIntervalRandom } from "./Util"
+import { Interval, setInterval, setIntervalRandom } from "./Util"
 import {setTimeout} from "SpectaclesInteractionKit.lspkg/Utils/FunctionTimingUtils"
+import { Score } from "./Score"
 
 @component
 export class GameManager extends BaseScriptComponent {
@@ -15,27 +16,44 @@ export class GameManager extends BaseScriptComponent {
     @input orbits : Orbit[]
     @input camera : Camera
 
+    private asteroidSpawnInterval : Interval;
+    private alienSpawnInterval : Interval;
+    private enterOrbitInterval : Interval;
+
+
     onAwake() {
         this.audioIntroduction.play(1);
         // this.createEvent("UpdateEvent").bind(this.update.bind(this))
 
         // setInterval(() => this.getRandomOrbit().spawnAsteroid(), 1000 * 3);
         // For every orbit, spawn asteroids with an inteval
-        setIntervalRandom(() => {
+        this.asteroidSpawnInterval = setIntervalRandom(() => {
             for (let i = 0; i < this.orbits.length; i++) {
                 this.orbits[i].spawnAsteroid();
             }
         }, 2_000, 4_000);
 
-        setIntervalRandom(() => {
+        this.alienSpawnInterval = setIntervalRandom(() => {
             this.alienPrefab.instantiate(this.sceneObject);
         }, 15_000, 25_000);
 
-
-        setIntervalRandom(() => {
+        this.enterOrbitInterval = setIntervalRandom(() => {
             const res = this.getRandomAsteroid();
             (res as any)?.enterPlanet()
         }, 10_000, 15_000);
+    }
+
+    public setPaused(state: boolean) {
+        for (const orbit of this.orbits)
+            orbit.setPaused(state);
+
+        this.asteroidSpawnInterval.setPaused(state);
+        this.alienSpawnInterval.setPaused(state);
+        this.enterOrbitInterval.setPaused(state);
+
+        Score.instance.setPaused(state);
+
+        print("Game paused=" + state);
     }
 
     private getRandomOrbit() : Orbit {
@@ -55,9 +73,5 @@ export class GameManager extends BaseScriptComponent {
             return null;
 
         return asteroids[Math.floor(Math.random() * asteroids.length)];
-    }
-
-    private randint(min: number, max: number): number {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

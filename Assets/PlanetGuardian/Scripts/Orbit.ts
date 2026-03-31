@@ -12,7 +12,8 @@ export class Orbit extends BaseScriptComponent {
     Asteroid: keyof ComponentNameMap
 
     private static readonly MAX_ASTEROIDS = 3;  // same for every Orbit instance
-    asteroids : Asteroid[]
+    private asteroids : Asteroid[]
+    private paused : boolean
 
     onAwake() {
         this.asteroids = [];
@@ -64,14 +65,19 @@ export class Orbit extends BaseScriptComponent {
     }
 
     private update() {
+        if (this.paused)
+            return;
+
         const transform = this.getTransform();
         const rotation = quat.fromEulerAngles(0, getTime() * this.rotationSpeed, 0);
         transform.setLocalRotation(rotation);
     }
 
-    // TODO: Check
     public getAsteroids(): object[] {
-
         return this.asteroids;
+    }
+
+    public setPaused(state: boolean) {
+        this.paused = state;
     }
 }

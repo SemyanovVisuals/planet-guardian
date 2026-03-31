@@ -1,0 +1,71 @@
+- !<AssetImportMetadata/66d1ed62-3a9f-4ada-9bd3-78ecb4f62417>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> e26a44fa-329b-4796-8d9a-637f327362b7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> e26a44fa-329b-4796-8d9a-637f327362b7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 1a04a5a7-4980-4853-bffc-1f8a422097c4
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/1a04a5a7-4980-4853-bffc-1f8a422097c4>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e073cb34-8c48-492b-83e7-2b84dce8f39b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    autoStart: false
+    enableLogging: false
+    enableLoggingLifecycle: false
+    gameManager: false
+    headLevel: false
+    objectVisuals: false
+    placementSettingMode: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - objectVisuals: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      gameManager: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      headLevel: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      placementSettingMode: 0
+      autoStart: true
+      enableLogging: false
+      enableLoggingLifecycle: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Placement Configuration</span>"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #94A3B8; font-size: 11px;\">Object and placement mode selection</span>"}'
+    - // @input SceneObject objectVisuals
+    - // @input AssignableType gameManager
+    - // @input SceneObject headLevel
+    - '// @input int placementSettingMode {"widget":"combobox", "values":[{"label":"Near Surface", "value":0}, {"label":"Horizontal", "value":1}, {"label":"Vertical", "value":2}]}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Behavior Settings</span>"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #94A3B8; font-size: 11px;\">Auto-start and initialization options</span>"}'
+    - // @input bool autoStart = true
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Logging Configuration</span>"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #94A3B8; font-size: 11px;\">Control logging output for this script instance</span>"}'
+    - '// @input bool enableLogging {"hint":"Enable general logging (animation cycles, events, etc.)"}'
+    - '// @input bool enableLoggingLifecycle {"hint":"Enable lifecycle logging (onAwake, onStart, onUpdate, onDestroy, etc.)"}'
