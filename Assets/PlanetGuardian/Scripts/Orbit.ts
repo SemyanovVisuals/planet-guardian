@@ -1,6 +1,7 @@
 import { Planet } from "./Planet"
 import { Asteroid } from "./Asteroid"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
+import { getScriptComponent } from "./Util"
 
 @component
 export class Orbit extends BaseScriptComponent {
@@ -26,8 +27,7 @@ export class Orbit extends BaseScriptComponent {
         }
         console.log("Spawning asteroid in: " + this.getSceneObject().name);
 
-        const spawnedObj = this.asteroidPrefab.instantiate(this.getSceneObject());
-        const newAsteroid = this.findAsteroidComponent(spawnedObj)
+        const newAsteroid = getScriptComponent(Asteroid, this.asteroidPrefab.instantiate(this.getSceneObject()));
 
         if(newAsteroid) {
             newAsteroid.setOrbit(this as Orbit)
@@ -47,21 +47,6 @@ export class Orbit extends BaseScriptComponent {
             print("NUM OF ASTEROIDS: " + this.asteroids.length)
             // this.spawnAsteroid()
         }
-    }
-
-    /**
-   * Find Asteroid component on a scene object
-   */
-    private findAsteroidComponent(sceneObject: SceneObject): Asteroid | null {
-        const allComponents = sceneObject.getComponents("Component.ScriptComponent")
-        for (let i = 0; i < allComponents.length; i++) {
-            const comp = allComponents[i]
-            // Check if this is a TriggerObject by checking if it has the required methods
-            if (comp && typeof (comp as any).enterPlanet === "function") {
-                return comp as Asteroid
-            }
-        }
-        return null
     }
 
     private update() {

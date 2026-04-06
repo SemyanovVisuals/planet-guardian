@@ -27,7 +27,7 @@
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
     camera: false
-    populationText: false
+    healthMat: false
     rocketsText: false
   ScriptTypesHidden:
     {}
@@ -39,12 +39,12 @@
     []
   DefaultScriptInputs:
     - camera: !<reference.Camera> 00000000-0000-0000-0000-000000000000
-      populationText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       rocketsText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      healthMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     -
       {}
   InputLines:
     - // @input Component.Camera camera
-    - // @input Component.Text populationText
     - // @input Component.Text rocketsText
+    - // @input Asset.Material healthMat

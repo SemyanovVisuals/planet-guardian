@@ -3,23 +3,25 @@ import { Interval, setInterval } from "./Util"
 @component
 export class Score extends BaseScriptComponent {
     @input camera : Camera
-    @input populationText : Text
     @input rocketsText : Text
+    @input healthMat : Material
 
-    private population : number = 1
+    private health : number = 100
     private rockets : number = 0
+    private damageIndicator : number = 0
 
     public static instance : Score;
     
-    private populationInterval : Interval;
+    private healthInterval : Interval;
     private rocketInterval : Interval;
 
     onAwake() {
         Score.instance = this;
         this.createEvent("UpdateEvent").bind(this.facePlayer.bind(this));
     
-        this.populationInterval = setInterval(() => {
-            this.population += 1 / Math.sqrt(this.population);
+        this.healthInterval = setInterval(() => {
+            this.health = Math.min(this.health + 0.1, 100);
+            this.damageIndicator /= 1.2;
         }, 10);
         
         this.rocketInterval = setInterval(() => {
@@ -29,36 +31,18 @@ export class Score extends BaseScriptComponent {
 
     public setPaused(state: boolean) {
         this.rocketInterval.setPaused(state);
-        this.populationInterval.setPaused(state);
-    }
-
-    private fmt(population: number): string {
-        const units = [ "", "K", "M", "B" ];
-
-        /*for (const unit of units) {
-            if (population < 1000)
-                return Math.floor(population) + unit;
-
-            population /= 1000;
-        }*/
-
-        for (const unit of units) {
-            if (population < 1000)
-                return Math.floor(population) + unit;
-
-            population -= 1000;
-        }
-
-        return population + "?";
-    }
-
-    public impact(damage: number) {
-        this.population *= Math.min(1.0, Math.max(0.0, 1.0 - damage));
+        this.healthInterval.setPaused(state);
     }
 
     public damage(damage: number) {
-        this.population -= damage;
-        this.population = Math.max(this.population, 0)
+        this.damageIndicator = Math.min(damage / 10.0, 1.0);
+        this.health = Math.max(0, this.health - damage);
+        if (this.health <= 0)
+            this.onDeath();
+    }
+
+    public onDeath() {
+
     }
 
     public takeRocket() : boolean {
@@ -74,7 +58,8 @@ export class Score extends BaseScriptComponent {
         const target = this.camera.getTransform().getWorldPosition();
         const dir = target.sub(src).normalize();
         this.getTransform().setWorldRotation(quat.lookAt(dir, vec3.up()));
-        this.populationText.text = this.fmt(this.population);
         this.rocketsText.text = this.rockets.toString();
+        this.healthMat.mainPass.level = this.health / 100.0;
+        this.healthMat.mainPass.white = this.damageIndicator;
     }
 }

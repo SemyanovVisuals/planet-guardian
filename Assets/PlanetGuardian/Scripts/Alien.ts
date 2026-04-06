@@ -2,6 +2,7 @@ import { DestroyableObject } from "../../Scripts/DestroyableObject"
 import animate from "SpectaclesInteractionKit.lspkg/Utils/animate"
 import TrackedHand from "SpectaclesInteractionKit.lspkg/Providers/HandInputData/TrackedHand"
 import { Score } from "./Score"
+import { Interval, setInterval } from "./Util"
 
 @component
 export class Alien extends DestroyableObject {
@@ -9,7 +10,8 @@ export class Alien extends DestroyableObject {
     @input beam : SceneObject
     @input model : SceneObject
 
-    startTime : number
+    public startTime : number
+    damageInterval : Interval
 
     onAwake() {
         this.startTime = getTime()
@@ -27,6 +29,9 @@ export class Alien extends DestroyableObject {
         this.beam.getTransform().setLocalPosition(new vec3(0, 4 - orbit * 0.5, 0));
         this.beam.getTransform().setLocalScale(new vec3(1, orbit * 0.5, 1));
 
+        this.damageInterval = setInterval(() => Score.instance.damage(5), 500);
+        this.damageInterval.setPaused(false);
+
         animate({
             easing: "ease-out-sine",
             duration: 2,
@@ -35,6 +40,10 @@ export class Alien extends DestroyableObject {
                 this.getTransform()?.setLocalScale(vec3.lerp(vec3.zero(), vec3.one(), t))
             },
         })
+    }
+    
+    public setPaused(state: boolean) {
+        this.damageInterval.setPaused(state);
     }
 
     onDestroy(hand: TrackedHand | null) {
@@ -56,11 +65,5 @@ export class Alien extends DestroyableObject {
 
     private update() {
         this.model.getTransform().setLocalRotation(quat.fromEulerAngles(0, getTime(), 0));
-        
-        const currentTime = getTime()
-        if (currentTime - this.startTime > 100) {
-            Score.instance.damage(1); // TODO: This needs to be added to the pause
-            this.startTime = currentTime;
-        }
     }
 }

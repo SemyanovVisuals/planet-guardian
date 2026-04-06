@@ -137,7 +137,7 @@ export class Asteroid extends BaseScriptComponent {
             if (newPos.distance(vec3.zero()) < 8) {
                 //tr.setLocalPosition(vec3.zero()); // Ensure it's exactly at the center
                 this.onDestroyAsteroid(); // Finalize asteroid destruction
-                Score.instance.impact(this.size);
+                Score.instance.damage(this.size * 50);
                 // TODO: effect
             }
         } else if (this.isReturning) {

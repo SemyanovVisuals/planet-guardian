@@ -72,14 +72,14 @@
   Enabled: true
   ScriptAsset: !<reference> a746a87a-b82d-431d-a965-f49dbb3507cd
   ScriptInputsDefault:
-    {}
+    healthMat: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
       camera: !<reference.Camera> 00000000-0000-0065-0000-000000000065
-      populationText: !<reference.Text> 8756c5bc-2dbc-479c-8ca2-58f4e353b8ae
       rocketsText: !<reference.Text> bb0d4832-ca86-484a-92c5-73828ef0ed53
+      healthMat: !<reference.Material> 00000000-0000-0000-0000-000000000000
   ScriptTypes:
     "":
       {}
@@ -138,6 +138,25 @@
   ScriptTypes:
     "":
       Asteroid: !<reference.ScriptAsset> 00000000-0000-0000-0000-000000000000
+- !<Image/11781adb-14c7-43b6-87fb-ad6e41dbece2>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Fit
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> f72023f7-4cdb-4328-9f91-432156340c68
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000
 - !<AudioComponent/12ebd3a5-f015-4ac1-8959-e4a2c76e60b6>
   PrefabRemaps:
     []
@@ -242,6 +261,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/29814f28-194e-4a49-9a61-be7ed0bd7c6d>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -2.500000, y: 0.800000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 2.250000, y: 2.250000, z: 2.250000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 11781adb-14c7-43b6-87fb-ad6e41dbece2
 - !<SceneObject/330fcefd-7856-47dc-7447-ae170e240fcf>
   PrefabRemaps:
     []
@@ -965,6 +999,7 @@
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
+    - !<own> 29814f28-194e-4a49-9a61-be7ed0bd7c6d
     - !<own> 541139bf-d006-4ad5-8913-5da76a6e4c45
     - !<own> 342cb0d2-2b6c-4272-b64b-6a51ddb0f506
   Components:

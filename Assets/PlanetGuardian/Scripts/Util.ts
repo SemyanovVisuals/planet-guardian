@@ -35,3 +35,17 @@ export function setIntervalRandom(callback: () => void, min: number, max: number
 export function randint(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function getScriptComponent<T extends BaseScriptComponent>(component: new () => T, obj: SceneObject): T | null {
+    const allComponents = obj.getComponents("Component.ScriptComponent")
+    const name = component.prototype.getTypeName();
+
+    for (let i = 0; i < allComponents.length; i++) {
+        const comp = allComponents[i]
+
+        if (comp && comp.getTypeName() == name) {
+            return comp as unknown as T
+        }
+    }
+    return null
+}
