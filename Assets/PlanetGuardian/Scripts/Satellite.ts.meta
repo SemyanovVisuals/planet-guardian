@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/6856cc93-708d-4fc8-b497-5a531a0c779d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 64817b9e-a460-480e-8f9d-98df0fc7c72f
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 64817b9e-a460-480e-8f9d-98df0fc7c72f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c66a4956-ec0a-489e-8115-b545350427b0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c66a4956-ec0a-489e-8115-b545350427b0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e463f05d-ae4a-4614-9a41-c28b32fbe649
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    beam: false
+    model: false
+    squishAudio: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - squishAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      beam: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      model: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.AudioComponent squishAudio
+    - // @input SceneObject beam
+    - // @input SceneObject model

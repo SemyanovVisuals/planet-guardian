@@ -1,0 +1,97 @@
+- !<AssetImportMetadata/370219cd-fc14-44d6-a633-8eb723f7d1a6>
+  ImportedAssetIds:
+    61693586dc1f5180: !<reference> e241dd99-0efb-406d-b7a3-2a97c9661699
+    647f0153906e6503: !<reference> f9d29d75-5bff-496e-8cbf-3558749aa629
+    7a0dd5cd69df73fa: !<reference> 67c0a233-65ac-47f8-a488-b369be85b50a
+    Meshes/Shield: !<reference> b3392b20-d800-46eb-ad03-50f95b35f080
+    Scene: !<reference> a7975131-6f09-4282-ab81-3a7c3732fc51
+  ImporterName: FbxImporter
+  PrimaryAsset: !<reference> a7975131-6f09-4282-ab81-3a7c3732fc51
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 5d14ac5a-541b-4e73-a467-e8d046ca5bc5
+  DependentFiles:
+    []
+  ImporterSettings: !<FbxImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBased
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangentsAndBinormals: true
+    RegenerateTangentsAndBinormals: false
+    RegenerateNormalsForSkinnedMeshes: true
+    ImportBlendShapeAnimation: true
+    ImportVertexAnimation: true
+    GeneratePivots: true
+    TriangulateNURBS: true
+    UseLegacyFbxLoader: false
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<SingleCompressionSettings>
+        CompressorName: None
+        CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<ObjectPrefabAssetData/5d14ac5a-541b-4e73-a467-e8d046ca5bc5>
+  Prototype: !<ObjectOwner/32438649-78ea-46e7-96f9-3dd5fe0c04e8>
+    PackagePath: ""
+    objects:
+      - !<own> 67c0a233-65ac-47f8-5b77-4c96417a4af5
+- !<SceneObject/67c0a233-65ac-47f8-5b77-4c96417a4af5>
+  PrefabRemaps:
+    []
+  Name: Shield
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> e241dd99-0efb-406d-485c-d5683699e966
+  Components:
+    []
+- !<SceneObject/e241dd99-0efb-406d-485c-d5683699e966>
+  PrefabRemaps:
+    []
+  Name: Shield
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: -90.000000, y: -0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f9d29d75-5bff-496e-7340-caa78b6559d6
+- !<RenderMeshVisual/f9d29d75-5bff-496e-7340-caa78b6559d6>
+  PrefabRemaps:
+    []
+  Name: component_0
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> b3392b20-d800-46eb-ad03-50f95b35f080
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

@@ -3,11 +3,13 @@ import { Orbit } from "./Orbit"
 import { Alien } from "./Alien"
 import { Interval, getScriptComponent, setInterval, setIntervalRandom } from "./Util"
 import { Score } from "./Score"
+import { Satellite } from "./Satellite"
 
 @component
 export class GameManager extends BaseScriptComponent {
     @input planet : Planet
     @input alienPrefab : ObjectPrefab
+    @input satellitePrefab : ObjectPrefab
     @input audioIntroduction : AudioComponent
     @input audioMusicNormal : AudioComponent
     @input orbits : Orbit[]
@@ -17,6 +19,7 @@ export class GameManager extends BaseScriptComponent {
     private alienSpawnInterval : Interval;
     private enterOrbitInterval : Interval;
     private aliens : Alien[] = [];
+    private satellites : Satellite[] = [];
 
 
     onAwake() {
@@ -32,11 +35,11 @@ export class GameManager extends BaseScriptComponent {
         }, 2_000, 4_000);
 
         this.alienSpawnInterval = setIntervalRandom(() => {
-            var alien = getScriptComponent(Alien, this.alienPrefab.instantiate(this.sceneObject));
-            console.log(alien.startTime);
-            this.aliens.push(alien);
+            this.aliens.push(getScriptComponent(Alien, this.alienPrefab.instantiate(this.sceneObject)));
         }, 15_000, 25_000);
 
+        this.satellites.push(getScriptComponent(Satellite, this.satellitePrefab.instantiate(this.sceneObject)));
+        
         this.enterOrbitInterval = setIntervalRandom(() => {
             const res = this.getRandomAsteroid();
             (res as any)?.enterPlanet()

@@ -32,6 +32,7 @@
     camera: false
     orbits: false
     planet: false
+    satellitePrefab: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -43,6 +44,7 @@
   DefaultScriptInputs:
     - planet: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       alienPrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
+      satellitePrefab: !<reference.ObjectPrefab> 00000000-0000-0000-0000-000000000000
       audioIntroduction: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       audioMusicNormal: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
       orbits: !<MappingBased.AssignableType_1[]>
@@ -54,6 +56,7 @@
   InputLines:
     - // @input AssignableType planet
     - // @input Asset.ObjectPrefab alienPrefab
+    - // @input Asset.ObjectPrefab satellitePrefab
     - // @input Component.AudioComponent audioIntroduction
     - // @input Component.AudioComponent audioMusicNormal
     - "// @input AssignableType_1[] orbits"
